@@ -32,8 +32,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
+#pragma mark - TableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self titles].count;
 }
@@ -88,7 +87,6 @@
                          NSLocalizedString(@"CAAnimationDelegate", nil),
                          NSLocalizedString(@"CAAdvancedAnimation", nil),
                          ];
-    
     return details;
 }
 
