@@ -7,6 +7,7 @@
 //
 
 #import "HICALayerController.h"
+#import "HILayerBasicController.h"
 
 @interface HICALayerController ()
 
@@ -22,6 +23,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.title = NSLocalizedString(@"layerTitle", nil);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,8 +46,22 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row + 1 > [self classes].count) {
+        return;
+    }
+    
+    [self.navigationController pushViewController:[[(Class)[[self classes] objectAtIndex:indexPath.row] alloc] init] animated:YES];
+}
+
 
 #pragma mark - getter
+
+/**
+ * 分类的标题
+ * class's title
+ */
 - (NSArray *)titles{
     NSArray *titles = @[@"Basic",
                         @"CAAnimation",
@@ -57,6 +74,10 @@
     return titles;
 }
 
+/**
+ * 分类的详细描述
+ * class's description
+ */
 - (NSArray *)details{
     NSArray *details = @[
                          NSLocalizedString(@"CABasic", nil),
@@ -69,6 +90,17 @@
                          ];
     
     return details;
+}
+
+/**
+ * 控制器的class
+ * controller's class
+ */
+- (NSArray *)classes{
+    NSArray *classes = @[[HILayerBasicController class],
+                         
+                         ];
+    return classes;
 }
 
 @end

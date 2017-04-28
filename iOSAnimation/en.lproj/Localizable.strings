@@ -6,6 +6,8 @@
   Copyright © 2017年 h_nChen. All rights reserved.
 */
 
+/** CALayer home*/
+
 "CABasic" = "understand what CALayer has properties for do animation";
 "CAAnimation" = "the basic class is All of layer's animation";
 "CABasicAnimation" = "using this Class, a layer can do basic animation";
@@ -13,3 +15,8 @@
 "CAGroupAnimation" = "using this Class, a layer can do multiple animation";
 "CAAnimationDelegate" = "layer all animation delegate";
 "CAAdvancedAnimation" = "by layer properties and animation do advanced animation";
+
+/** title*/
+"title" = "home";
+"layerTitle" = "CALayer's home";
+"layerTitleBasic" = "layer properties";

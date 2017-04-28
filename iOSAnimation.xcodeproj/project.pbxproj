@@ -17,6 +17,8 @@
 		D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74117E81EB2EDE00082B450 /* HIUIViewController.m */; };
 		D74117FE1EB2FAA30082B450 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D74118001EB2FAA30082B450 /* Localizable.strings */; };
 		D741180A1EB2FB800082B450 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D741180C1EB2FB800082B450 /* InfoPlist.strings */; };
+		D74118111EB31E7E0082B450 /* HILayerBasicController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74118101EB31E7E0082B450 /* HILayerBasicController.m */; };
+		D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74118161EB32F9B0082B450 /* HILayerTransformController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,10 @@
 		D74118011EB2FAA40082B450 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D741180B1EB2FB800082B450 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		D741180D1EB2FB810082B450 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D741180F1EB31E7E0082B450 /* HILayerBasicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerBasicController.h; sourceTree = "<group>"; };
+		D74118101EB31E7E0082B450 /* HILayerBasicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerBasicController.m; sourceTree = "<group>"; };
+		D74118151EB32F9B0082B450 /* HILayerTransformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerTransformController.h; sourceTree = "<group>"; };
+		D74118161EB32F9B0082B450 /* HILayerTransformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerTransformController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 			children = (
 				D74117E41EB2EDCB0082B450 /* HICALayerController.h */,
 				D74117E51EB2EDCB0082B450 /* HICALayerController.m */,
+				D741180E1EB31E660082B450 /* basic */,
 			);
 			path = CALayer;
 			sourceTree = "<group>";
@@ -123,6 +130,41 @@
 				D74117E81EB2EDE00082B450 /* HIUIViewController.m */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		D741180E1EB31E660082B450 /* basic */ = {
+			isa = PBXGroup;
+			children = (
+				D741180F1EB31E7E0082B450 /* HILayerBasicController.h */,
+				D74118101EB31E7E0082B450 /* HILayerBasicController.m */,
+				D74118121EB32F3E0082B450 /* layer */,
+				D74118131EB32F3E0082B450 /* shapeLayer */,
+				D74118141EB32F450082B450 /* gradientLayer */,
+			);
+			path = basic;
+			sourceTree = "<group>";
+		};
+		D74118121EB32F3E0082B450 /* layer */ = {
+			isa = PBXGroup;
+			children = (
+				D74118151EB32F9B0082B450 /* HILayerTransformController.h */,
+				D74118161EB32F9B0082B450 /* HILayerTransformController.m */,
+			);
+			path = layer;
+			sourceTree = "<group>";
+		};
+		D74118131EB32F3E0082B450 /* shapeLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = shapeLayer;
+			sourceTree = "<group>";
+		};
+		D74118141EB32F450082B450 /* gradientLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = gradientLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,11 +243,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */,
 				D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */,
 				D74117E11EB2ED340082B450 /* ViewController.m in Sources */,
 				D74117E01EB2ED340082B450 /* AppDelegate.m in Sources */,
 				D74117E61EB2EDCB0082B450 /* HICALayerController.m in Sources */,
 				D74117C41EB2E97C0082B450 /* main.m in Sources */,
+				D74118111EB31E7E0082B450 /* HILayerBasicController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
