@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  iOSAnimation
+
+  Created by 陈汉楠 on 17/4/28.
+  Copyright © 2017年 h_nChen. All rights reserved.
+*/
+
+"CABasic" = "了解CALayer拥有的属性，以更好实现动画";
+"CAAnimation" = "所有CALayer动画的基类";
+"CABasicAnimation" = "通过此类，可以实现单一动画";
+"CAKeyFrameAnimation" = "通过此类，可以实现关键帧动画";
+"CAGroupAnimation" = "通过此类，可以实现复合动画";
+"CAAnimationDelegate" = "CAlayer动画的代理，可以监听动画的开始与结束";
+"CAAdvancedAnimation" = "通过以上知识，实现复杂的高级动画";

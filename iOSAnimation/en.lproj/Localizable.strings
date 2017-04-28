@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  iOSAnimation
+
+  Created by 陈汉楠 on 17/4/28.
+  Copyright © 2017年 h_nChen. All rights reserved.
+*/
+
+"CABasic" = "understand what CALayer has properties for do animation";
+"CAAnimation" = "the basic class is All of layer's animation";
+"CABasicAnimation" = "using this Class, a layer can do basic animation";
+"CAKeyFrameAnimation" = "using this Class, a layer can do keyFrameAnimation";
+"CAGroupAnimation" = "using this Class, a layer can do multiple animation";
+"CAAnimationDelegate" = "layer all animation delegate";
+"CAAdvancedAnimation" = "by layer properties and animation do advanced animation";
