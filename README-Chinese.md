@@ -1,4 +1,4 @@
-# iOS动画 ([English Language](https://github.com/SiegeLeo/iOSAnimation/blob/master/README-Englisn.md))
+# iOS动画 ([English Language](https://github.com/SiegeLeo/iOSAnimation/blob/master/README-English.md))
 #### 导语:
 通过该demo, 学习使用CALayer与UIView实现有趣的动画效果
 
