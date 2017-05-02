@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, CALayerTransformMode) {
+    CALayerTransformMode3D,
+    CALayerTransformModeValue
+};
+
 typedef NS_ENUM(NSInteger, CALayerTransformDirection) {
     CALayerTransformDirectionX,
     CALayerTransformDirectionY,
@@ -19,6 +24,8 @@ typedef NS_ENUM(NSInteger, CALayerTransformAction) {
     CALayerTransformActionScale,
     CALayerTransformActionRotate
 };
+
+
 
 @interface HILayerTransformController : UIViewController
 

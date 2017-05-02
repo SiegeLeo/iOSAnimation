@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) UILabel *tips;
 
+@property (nonatomic, strong) UISegmentedControl *modeSegment;
 @property (nonatomic, strong) UISegmentedControl *actionSegment;
 @property (nonatomic, strong) UISegmentedControl *directionSegment;
 @property (nonatomic, strong) UISlider *slider;
@@ -47,6 +48,7 @@
     [self.view addSubview:self.directionSegment];
     [self.view addSubview:self.slider];
     
+    self.navigationItem.titleView = self.modeSegment;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"reset" style:UIBarButtonItemStylePlain target:self action:@selector(reset)];
     
     [self reset];
@@ -86,6 +88,22 @@
         _tips.center = CGPointMake(self.view.bounds.size.width * 0.5, (self.view.bounds.size.height - _tips.frame.size.height - MARGIN) + (_tips.frame.size.height * 0.5));
     }
     return _tips;
+}
+
+- (UISegmentedControl *)modeSegment{
+    if (!_modeSegment) {
+        NSArray *items = @[@"Transform3D", @"forKeyPath"];
+        CGFloat segmentW = items.count * ITEM_WIDTH;
+        CGFloat segmentH = ITEM_HEIGHT;
+        CGFloat segmentX = 0;
+        CGFloat segmentY = 0;
+        
+        _modeSegment = [[UISegmentedControl alloc] initWithItems:items];
+        _modeSegment.frame = CGRectMake(segmentX, segmentY, segmentW, segmentH);
+        _modeSegment.selectedSegmentIndex = CALayerTransformMode3D;
+        [_modeSegment addTarget:self action:@selector(selectedMode:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _modeSegment;
 }
 
 
@@ -138,6 +156,10 @@
 
 
 #pragma mark - action
+- (void)selectedMode:(UISegmentedControl *)segment{
+    [self reset];
+}
+
 - (void)selectedDirection:(UISegmentedControl *)segment{
     self.direction = segment.selectedSegmentIndex;
     [self reset];
@@ -149,19 +171,38 @@
 }
 
 - (void)sliderChanged:(UISlider *)slider{
-    switch (self.action) {
-        case CALayerTransformActionTranslate:
-            [self translate:slider.value];
-            break;
-        case CALayerTransformActionRotate:
-            [self rotate:slider.value];
-            break;
-        case CALayerTransformActionScale:
-            [self scale:slider.value];
-            break;
-        default:
-            break;
-    }
+    if (self.modeSegment.selectedSegmentIndex == CALayerTransformMode3D) {
+        switch (self.action) {
+            case CALayerTransformActionTranslate:
+                [self translate:slider.value];
+                break;
+            case CALayerTransformActionRotate:
+                [self rotate:slider.value];
+                break;
+            case CALayerTransformActionScale:
+                [self scale:slider.value];
+                break;
+            default:
+                break;
+        }
+    }else{
+            
+            
+            switch (self.action) {
+                case CALayerTransformActionTranslate:
+                    [self setTranslation:slider.value];
+                    break;
+                case CALayerTransformActionRotate:
+                    [self setRotation:slider.value];
+                    break;
+                case CALayerTransformActionScale:
+                    [self setScale:slider.value];
+                    break;
+                default:
+                    break;
+            }
+        }
+     
 }
 
 /**
@@ -187,6 +228,10 @@
 
 #pragma mark - private
 
+/**
+ * translate by CATransform3D
+ * 通过CATransform3D控制位移
+ */
 - (void)translate:(CGFloat)value{
     CGFloat tx = 0;
     CGFloat ty = 0;
@@ -208,6 +253,10 @@
     self.layer.transform = CATransform3DTranslate(CATransform3DIdentity, tx, ty, tz);
 }
 
+/**
+ * rotate by CATransform3D
+ * 通过CATransform3D控制旋转
+ */
 - (void)rotate:(CGFloat)value{
     CGFloat dx = 0;
     CGFloat dy = 0;
@@ -231,6 +280,10 @@
     self.layer.transform = CATransform3DRotate(CATransform3DIdentity, angle, dx, dy, dz);
 }
 
+/**
+ * scale by CATransform3D
+ * 通过CATransform3D控制缩放
+ */
 - (void)scale:(CGFloat)value{
     CGFloat sx = 1;
     CGFloat sy = 1;
@@ -252,5 +305,59 @@
     self.layer.transform = CATransform3DScale(CATransform3DIdentity, sx, sy, sz);
 }
 
+// transform.translation.x/y/z
+- (void)setTranslation:(CGFloat)value{
+    CGFloat distance = (value - 0.5) * 100;
+    switch (self.direction) {
+        case CALayerTransformDirectionX:
+            [self.layer setValue:@(distance) forKeyPath:@"transform.translation.x"];
+            break;
+        case CALayerTransformDirectionY:
+            [self.layer setValue:@(distance) forKeyPath:@"transform.translation.y"];
+            break;
+        case CALayerTransformDirectionZ:
+            [self.layer setValue:@(distance) forKeyPath:@"transform.translation.z"];
+            break;
+        default:
+            break;
+    }
+}
 
+// transform.rotation.x/y/z
+- (void)setRotation:(CGFloat)value{
+    
+    CGFloat angle = (value - 0.5) * (M_PI / 0.5);
+    
+    switch (self.direction) {
+        case CALayerTransformDirectionX:
+            [self.layer setValue:@(angle) forKeyPath:@"transform.rotation.x"];
+            break;
+        case CALayerTransformDirectionY:
+            [self.layer setValue:@(angle) forKeyPath:@"transform.rotation.y"];
+            break;
+        case CALayerTransformDirectionZ:
+            [self.layer setValue:@(angle) forKeyPath:@"transform.rotation.z"];
+            break;
+        default:
+            break;
+    }
+}
+
+// transfor.scale.x/y/z
+- (void)setScale:(CGFloat)value{
+    CGFloat scale = 1 + (value - 0.5) * 2;
+    switch (self.direction) {
+        case CALayerTransformDirectionX:
+            [self.layer setValue:@(scale) forKeyPath:@"transform.scale.x"];
+            break;
+        case CALayerTransformDirectionY:
+            [self.layer setValue:@(scale) forKeyPath:@"transform.scale.y"];
+            break;
+        case CALayerTransformDirectionZ:
+            [self.layer setValue:@(scale) forKeyPath:@"transform.scale.z"];
+            break;
+        default:
+            break;
+    }
+}
 @end

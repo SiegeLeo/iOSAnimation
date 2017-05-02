@@ -18,8 +18,8 @@
 
 /** title*/
 "title" = "首页";
-"layerTitle" = "CALayer首页";
-"layerTitleBasic" = "layer属性";
+"layerTitle" = "layer首页";
+"layerTitleBasic" = "属性";
 
 /** transform*/
 "CALayerTransformTips" = "注意! 红色layer和蓝色layer的位置变化";

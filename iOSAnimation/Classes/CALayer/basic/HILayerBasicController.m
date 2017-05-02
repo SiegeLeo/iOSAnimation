@@ -149,8 +149,8 @@
  */
 - (NSArray *)shapeLayerPropertyDetails{
     NSArray *shapeLayerPropertyDetails = @[
-                                          @"path",
-                                          @"strokeColor",
+                                          @"Class: ",
+                                          @"Class: ",
                                           ];
     return shapeLayerPropertyDetails;
 }

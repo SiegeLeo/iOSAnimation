@@ -18,8 +18,8 @@
 
 /** title*/
 "title" = "home";
-"layerTitle" = "CALayer's home";
-"layerTitleBasic" = "layer properties";
+"layerTitle" = "layer's home";
+"layerTitleBasic" = "properties";
 
 /** */
 "CALayerTransformTips" = "Notice! contrast the red layer's position and the blue layer's position";
