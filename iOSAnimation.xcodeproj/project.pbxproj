@@ -20,6 +20,7 @@
 		D74118111EB31E7E0082B450 /* HILayerBasicController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74118101EB31E7E0082B450 /* HILayerBasicController.m */; };
 		D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74118161EB32F9B0082B450 /* HILayerTransformController.m */; };
 		D787EDC11EB861CB003B8C29 /* huaji.png in Resources */ = {isa = PBXBuildFile; fileRef = D787EDC01EB861CB003B8C29 /* huaji.png */; };
+		D787EDC41EB87BA0003B8C29 /* HILayerMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDC31EB87BA0003B8C29 /* HILayerMaskController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		D74118151EB32F9B0082B450 /* HILayerTransformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerTransformController.h; sourceTree = "<group>"; };
 		D74118161EB32F9B0082B450 /* HILayerTransformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerTransformController.m; sourceTree = "<group>"; };
 		D787EDC01EB861CB003B8C29 /* huaji.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huaji.png; sourceTree = "<group>"; };
+		D787EDC21EB87BA0003B8C29 /* HILayerMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerMaskController.h; sourceTree = "<group>"; };
+		D787EDC31EB87BA0003B8C29 /* HILayerMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerMaskController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 			children = (
 				D74118151EB32F9B0082B450 /* HILayerTransformController.h */,
 				D74118161EB32F9B0082B450 /* HILayerTransformController.m */,
+				D787EDC21EB87BA0003B8C29 /* HILayerMaskController.h */,
+				D787EDC31EB87BA0003B8C29 /* HILayerMaskController.m */,
 			);
 			path = layer;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D787EDC41EB87BA0003B8C29 /* HILayerMaskController.m in Sources */,
 				D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */,
 				D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */,
 				D74117E11EB2ED340082B450 /* ViewController.m in Sources */,
