@@ -19,6 +19,7 @@
 		D741180A1EB2FB800082B450 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D741180C1EB2FB800082B450 /* InfoPlist.strings */; };
 		D74118111EB31E7E0082B450 /* HILayerBasicController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74118101EB31E7E0082B450 /* HILayerBasicController.m */; };
 		D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74118161EB32F9B0082B450 /* HILayerTransformController.m */; };
+		D787EDC11EB861CB003B8C29 /* huaji.png in Resources */ = {isa = PBXBuildFile; fileRef = D787EDC01EB861CB003B8C29 /* huaji.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D74118101EB31E7E0082B450 /* HILayerBasicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerBasicController.m; sourceTree = "<group>"; };
 		D74118151EB32F9B0082B450 /* HILayerTransformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerTransformController.h; sourceTree = "<group>"; };
 		D74118161EB32F9B0082B450 /* HILayerTransformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerTransformController.m; sourceTree = "<group>"; };
+		D787EDC01EB861CB003B8C29 /* huaji.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huaji.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		D74117C21EB2E97C0082B450 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D787EDC01EB861CB003B8C29 /* huaji.png */,
 				D74117C31EB2E97C0082B450 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D74117FE1EB2FAA30082B450 /* Localizable.strings in Resources */,
+				D787EDC11EB861CB003B8C29 /* huaji.png in Resources */,
 				D74117E31EB2ED5E0082B450 /* Main.storyboard in Resources */,
 				D74117D21EB2E97C0082B450 /* LaunchScreen.storyboard in Resources */,
 				D74117CF1EB2E97C0082B450 /* Assets.xcassets in Resources */,
@@ -422,6 +426,7 @@
 				D74117D81EB2E97C0082B450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

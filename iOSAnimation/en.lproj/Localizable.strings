@@ -20,3 +20,6 @@
 "title" = "home";
 "layerTitle" = "CALayer's home";
 "layerTitleBasic" = "layer properties";
+
+/** */
+"CALayerTransformTips" = "Notice! contrast the red layer's position and the blue layer's position";
