@@ -10,6 +10,7 @@
 
 #import "HILayerTransformController.h"
 #import "HILayerMaskController.h"
+#import "HILayerContentsController.h"
 
 @interface HILayerBasicController ()
 
@@ -97,6 +98,7 @@
     NSArray *layerProperties = @[
                                  @"transform",
                                  @"mask",
+                                 @"contents",
                                  ];
     return layerProperties;
 }
@@ -143,6 +145,8 @@
     NSArray *layerPropertyDetails = @[
                                       @"Class: HILayerTransformController, transform",
                                       @"Class: HILayerMaskController, mask",
+                                      @"Class: HILayerContentsController, contents",
+
                                      ];
     return layerPropertyDetails;
 }
@@ -188,7 +192,8 @@
 - (NSArray *)layerClasses{
     NSArray *layerClasses = @[
                               [HILayerTransformController class],
-                              [HILayerMaskController class]
+                              [HILayerMaskController class],
+                              [HILayerContentsController class],
                               ];
     return layerClasses;
 }

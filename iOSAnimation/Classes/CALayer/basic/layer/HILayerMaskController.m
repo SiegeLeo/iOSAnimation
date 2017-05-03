@@ -57,6 +57,12 @@
         _maskLayer.backgroundColor = [UIColor blueColor].CGColor;
         _maskLayer.cornerRadius = LAYER_WIDTH * 0.5;
         _maskLayer.masksToBounds = YES;
+        
+        /* open this code and remove maskLayer's backgroundColor, the superLayer.mask shape will became this image shape
+         * 打开这段代码并且移除maskLayer的背景色，蒙板的形状将变成图片的形状
+         
+         _maskLayer.contents = (id)[UIImage imageNamed:@"huaji"].CGImage;
+         */
     }
     return _maskLayer;
 }

@@ -61,6 +61,12 @@
         _layer = [CALayer layer];
         _layer.frame = CGRectMake((self.view.bounds.size.width - LAYER_WIDTH) * 0.5, (self.view.bounds.size.height - LAYER_WIDTH) * 0.5, LAYER_WIDTH, LAYER_WIDTH);
         _layer.backgroundColor = [UIColor redColor].CGColor;
+        
+        /* open this code, the layer will display a image, help observing the change
+         * 打开这段代码，该layer将显示一个图片，有助于观察变化
+         
+        _layer.contents = (id)[UIImage imageNamed:@"huaji"].CGImage;
+         */
     }
     return _layer;
 }

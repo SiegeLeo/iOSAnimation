@@ -21,6 +21,8 @@
 		D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74118161EB32F9B0082B450 /* HILayerTransformController.m */; };
 		D787EDC11EB861CB003B8C29 /* huaji.png in Resources */ = {isa = PBXBuildFile; fileRef = D787EDC01EB861CB003B8C29 /* huaji.png */; };
 		D787EDC41EB87BA0003B8C29 /* HILayerMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDC31EB87BA0003B8C29 /* HILayerMaskController.m */; };
+		D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDC61EB88E4C003B8C29 /* HILayerContentsController.m */; };
+		D787EDC91EB9B7B2003B8C29 /* tree@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D787EDC81EB9B7B2003B8C29 /* tree@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,9 @@
 		D787EDC01EB861CB003B8C29 /* huaji.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huaji.png; sourceTree = "<group>"; };
 		D787EDC21EB87BA0003B8C29 /* HILayerMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerMaskController.h; sourceTree = "<group>"; };
 		D787EDC31EB87BA0003B8C29 /* HILayerMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerMaskController.m; sourceTree = "<group>"; };
+		D787EDC51EB88E4C003B8C29 /* HILayerContentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerContentsController.h; sourceTree = "<group>"; };
+		D787EDC61EB88E4C003B8C29 /* HILayerContentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerContentsController.m; sourceTree = "<group>"; };
+		D787EDC81EB9B7B2003B8C29 /* tree@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 		D74117C21EB2E97C0082B450 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D787EDC81EB9B7B2003B8C29 /* tree@2x.png */,
 				D787EDC01EB861CB003B8C29 /* huaji.png */,
 				D74117C31EB2E97C0082B450 /* main.m */,
 			);
@@ -157,6 +163,8 @@
 				D74118161EB32F9B0082B450 /* HILayerTransformController.m */,
 				D787EDC21EB87BA0003B8C29 /* HILayerMaskController.h */,
 				D787EDC31EB87BA0003B8C29 /* HILayerMaskController.m */,
+				D787EDC51EB88E4C003B8C29 /* HILayerContentsController.h */,
+				D787EDC61EB88E4C003B8C29 /* HILayerContentsController.m */,
 			);
 			path = layer;
 			sourceTree = "<group>";
@@ -238,6 +246,7 @@
 			files = (
 				D74117FE1EB2FAA30082B450 /* Localizable.strings in Resources */,
 				D787EDC11EB861CB003B8C29 /* huaji.png in Resources */,
+				D787EDC91EB9B7B2003B8C29 /* tree@2x.png in Resources */,
 				D74117E31EB2ED5E0082B450 /* Main.storyboard in Resources */,
 				D74117D21EB2E97C0082B450 /* LaunchScreen.storyboard in Resources */,
 				D74117CF1EB2E97C0082B450 /* Assets.xcassets in Resources */,
@@ -256,6 +265,7 @@
 				D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */,
 				D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */,
 				D74117E11EB2ED340082B450 /* ViewController.m in Sources */,
+				D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */,
 				D74117E01EB2ED340082B450 /* AppDelegate.m in Sources */,
 				D74117E61EB2EDCB0082B450 /* HICALayerController.m in Sources */,
 				D74117C41EB2E97C0082B450 /* main.m in Sources */,
