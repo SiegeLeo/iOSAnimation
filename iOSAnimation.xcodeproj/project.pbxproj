@@ -23,6 +23,7 @@
 		D787EDC41EB87BA0003B8C29 /* HILayerMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDC31EB87BA0003B8C29 /* HILayerMaskController.m */; };
 		D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDC61EB88E4C003B8C29 /* HILayerContentsController.m */; };
 		D787EDC91EB9B7B2003B8C29 /* tree@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D787EDC81EB9B7B2003B8C29 /* tree@2x.png */; };
+		D787EDCC1EB9CBB0003B8C29 /* HILayerPathController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		D787EDC51EB88E4C003B8C29 /* HILayerContentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerContentsController.h; sourceTree = "<group>"; };
 		D787EDC61EB88E4C003B8C29 /* HILayerContentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerContentsController.m; sourceTree = "<group>"; };
 		D787EDC81EB9B7B2003B8C29 /* tree@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree@2x.png"; sourceTree = "<group>"; };
+		D787EDCA1EB9CBB0003B8C29 /* HILayerPathController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerPathController.h; sourceTree = "<group>"; };
+		D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerPathController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +175,8 @@
 		D74118131EB32F3E0082B450 /* shapeLayer */ = {
 			isa = PBXGroup;
 			children = (
+				D787EDCA1EB9CBB0003B8C29 /* HILayerPathController.h */,
+				D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */,
 			);
 			path = shapeLayer;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */,
 				D74117E11EB2ED340082B450 /* ViewController.m in Sources */,
 				D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */,
+				D787EDCC1EB9CBB0003B8C29 /* HILayerPathController.m in Sources */,
 				D74117E01EB2ED340082B450 /* AppDelegate.m in Sources */,
 				D74117E61EB2EDCB0082B450 /* HICALayerController.m in Sources */,
 				D74117C41EB2E97C0082B450 /* main.m in Sources */,

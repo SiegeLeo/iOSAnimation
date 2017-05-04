@@ -8,9 +8,13 @@
 
 #import "HILayerBasicController.h"
 
+/** Layer*/
 #import "HILayerTransformController.h"
 #import "HILayerMaskController.h"
 #import "HILayerContentsController.h"
+
+/** shapeLayer*/
+#import "HILayerPathController.h"
 
 @interface HILayerBasicController ()
 
@@ -157,7 +161,7 @@
  */
 - (NSArray *)shapeLayerPropertyDetails{
     NSArray *shapeLayerPropertyDetails = @[
-                                          @"Class: ",
+                                          @"Class: HILayerPathController, path",
                                           @"Class: ",
                                           ];
     return shapeLayerPropertyDetails;
@@ -202,7 +206,9 @@
  * shapeLayerContrller's classes
  */
 - (NSArray *)shapeLayerClasses{
-    NSArray *shapeLayerClasses = @[];
+    NSArray *shapeLayerClasses = @[
+                                   [HILayerPathController class],
+                                   ];
     return shapeLayerClasses;
 }
 /**
