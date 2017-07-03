@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSArray *paths;
 @end
 
 @implementation HILayerPathController
@@ -27,6 +29,8 @@
     [self.view.layer addSublayer:self.shapeLayer];
     [self.view addSubview:self.tableView];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"select" style:UIBarButtonItemStylePlain target:self action:@selector(selctedPath)];
+    
+    self.shapeLayer.path = [self CGRectangle3];
 }
 
 #pragma mark - getter
@@ -57,55 +61,102 @@
 }
 
 - (NSArray *)items{
-    NSArray *items = @[
-                       @"line1",
-                       @"line2",
-                       @"line3",
-                       @"rectangle1",
-                       @"rectangle2",
-                       @"rectangle3",
-                       @"oval1",
-                       @"oval2",
-                       @"oval3",
-                       ];
-    return items;
+    if (!_items) {
+        NSArray *UIBezierItems = @[
+                           @"line1",
+                           @"line2",
+                           @"line3",
+                           @"rectangle1",
+                           @"rectangle2",
+                           @"rectangle3",
+                           @"oval1",
+                           @"oval2",
+                           @"oval3",
+                           ];
+        
+        NSArray *CGPathRefItems = @[
+                            @"line1",
+                            @"line2",
+                            @"line3",
+                            @"rectangle1",
+                            @"rectangle2",
+                            @"rectangle3",
+                            @"oval1",
+                            ];
+        
+        _items = @[UIBezierItems, CGPathRefItems];
+        
+    }
+    return _items;
 }
 
 - (NSArray *)paths{
-    NSArray *paths = @[
-                       [self line1],
-                       [self line2],
-                       [self line3],
-                       [self rectangle1],
-                       [self rectangle2],
-                       [self rectangle3],
-                       [self oval1],
-                       [self oval2],
-                       [self oval3]
-                       ];
-    return paths;
+    if (!_paths) {
+        NSArray *UIBezierPaths = @[
+                           [self line1],
+                           [self line2],
+                           [self line3],
+                           [self rectangle1],
+                           [self rectangle2],
+                           [self rectangle3],
+                           [self oval1],
+                           [self oval2],
+                           [self oval3]
+                           ];
+        
+        NSArray *CGPathRefPaths = @[
+                                   (id)[self CGLine1],
+                                   (id)[self CGLine2],
+                                   (id)[self CGLine3],
+                                   (id)[self CGRectangle1],
+                                   (id)[self CGRectangle2],
+                                   (id)[self CGRectangle3],
+                                   (id)[self CGOval1]
+                                   ];
+        _paths = @[UIBezierPaths, CGPathRefPaths];
+    }
+    return _paths;
 }
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return self.items.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self items] .count;
+    NSArray *items = [self.items objectAtIndex:section];
+    return items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.textLabel.text = [[self items] objectAtIndex:indexPath.row];
+    NSArray *items = [self.items objectAtIndex:indexPath.section];
+    cell.textLabel.text = [items objectAtIndex:indexPath.row];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.shapeLayer.path = ((UIBezierPath *)[[self paths] objectAtIndex:indexPath.row]).CGPath;
+    NSArray *paths = [self.paths objectAtIndex:indexPath.section];
+    if (indexPath.section == 0) {
+        self.shapeLayer.path = ((UIBezierPath *)[paths objectAtIndex:indexPath.row]).CGPath;
+    }else{
+        self.shapeLayer.path = (__bridge CGPathRef)[paths objectAtIndex:indexPath.row];
+    }
     self.tableView.hidden = YES;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return @"UIBezierPath";
+    }else{
+        return @"CGPathRef";
+    }
 }
 
 #pragma mark - action
 - (void)selctedPath{
-    self.tableView.hidden = NO;
+    self.tableView.hidden = !self.tableView.hidden;
 }
 
 #pragma mark - UIBezierPath
@@ -139,16 +190,9 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(10, 10)];
     [path addLineToPoint:CGPointMake(110, 10)];
-    
-    [path moveToPoint:CGPointMake(110, 10)];
     [path addLineToPoint:CGPointMake(110, 110)];
-    
-    [path moveToPoint:CGPointMake(110, 110)];
     [path addLineToPoint:CGPointMake(10, 110)];
-    
-    [path moveToPoint:CGPointMake(10, 110)];
     [path addLineToPoint:CGPointMake(10, 10)];
-    
     return path;
 }
 
@@ -172,6 +216,53 @@
     return path;
 }
 
+#pragma mark - CGPathRef : the result same as UIBezierPath
+- (CGPathRef)CGLine1{
+    CGMutablePathRef pathRef = CGPathCreateMutable();
+    CGPathMoveToPoint(pathRef, nil, 50, 100);
+    CGPathAddLineToPoint(pathRef, nil, 150, 100);
+    return pathRef;
+}
 
+- (CGPathRef)CGLine2{
+    CGMutablePathRef pathRef = CGPathCreateMutable();
+    CGPathMoveToPoint(pathRef, nil, 50, 100);
+    CGPathAddQuadCurveToPoint(pathRef, nil, 100, 150, 150, 100);
+    return pathRef;
+}
+
+- (CGPathRef)CGLine3{
+    CGMutablePathRef pathRef = CGPathCreateMutable();
+    CGPathMoveToPoint(pathRef, nil, 50, 100);
+    CGPathAddCurveToPoint(pathRef, nil, 100, 50, 100, 150, 150, 100);
+    return pathRef;
+}
+
+- (CGPathRef)CGRectangle1{
+    CGMutablePathRef pathRef = CGPathCreateMutable();
+    CGPathAddRect(pathRef, nil, CGRectMake(10, 10, 100, 100));
+    return pathRef;
+}
+
+- (CGPathRef)CGRectangle2{
+    CGMutablePathRef pathRef = CGPathCreateMutable();
+    CGPathMoveToPoint(pathRef, nil, 10, 10);
+    CGPathAddLineToPoint(pathRef, nil, 110, 10);
+    CGPathAddLineToPoint(pathRef, nil, 110, 110);
+    CGPathAddLineToPoint(pathRef, nil, 10, 110);
+    CGPathAddLineToPoint(pathRef, nil, 10, 10);
+    return pathRef;
+}
+
+- (CGPathRef)CGRectangle3{
+    CGMutablePathRef pathRef = CGPathCreateMutable();
+    CGPathAddRoundedRect(pathRef, nil, CGRectMake(50, 50, 200, 200), 50, 50);
+    return pathRef;
+}
+
+- (CGPathRef)CGOval1{
+    CGPathRef pathRef = CGPathCreateWithEllipseInRect(CGRectMake(50, 50, 100, 200), nil);
+    return pathRef;
+}
 
 @end
