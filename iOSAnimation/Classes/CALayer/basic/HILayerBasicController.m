@@ -15,6 +15,7 @@
 
 /** shapeLayer*/
 #import "HILayerPathController.h"
+#import "HILayerStrokeController.h"
 
 @interface HILayerBasicController ()
 
@@ -47,6 +48,7 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = [[[self propertyTitles] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = [[[self propertyDetails] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
     return cell;
 }
 
@@ -114,7 +116,7 @@
 - (NSArray *)shapeLayerProperties{
     NSArray *shapeLayerProperties = @[
                                       @"path",
-                                      @"strokeColor",
+                                      @"strokes",
                                       ];
     return shapeLayerProperties;
 }
@@ -162,7 +164,7 @@
 - (NSArray *)shapeLayerPropertyDetails{
     NSArray *shapeLayerPropertyDetails = @[
                                           @"Class: HILayerPathController, path",
-                                          @"Class: ",
+                                          @"Class: HILayerStrokeController, strokeColor、strokeStart、strokeEnd",
                                           ];
     return shapeLayerPropertyDetails;
 }
@@ -208,6 +210,7 @@
 - (NSArray *)shapeLayerClasses{
     NSArray *shapeLayerClasses = @[
                                    [HILayerPathController class],
+                                   [HILayerStrokeController class],
                                    ];
     return shapeLayerClasses;
 }

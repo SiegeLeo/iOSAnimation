@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0372E672061152900BA83EC /* HILayerStrokeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0372E662061152900BA83EC /* HILayerStrokeController.m */; };
 		D74117C41EB2E97C0082B450 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D74117C31EB2E97C0082B450 /* main.m */; };
 		D74117CF1EB2E97C0082B450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74117CE1EB2E97C0082B450 /* Assets.xcassets */; };
 		D74117D21EB2E97C0082B450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74117D01EB2E97C0082B450 /* LaunchScreen.storyboard */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D0372E652061152900BA83EC /* HILayerStrokeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerStrokeController.h; sourceTree = "<group>"; };
+		D0372E662061152900BA83EC /* HILayerStrokeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HILayerStrokeController.m; sourceTree = "<group>"; };
 		D74117BF1EB2E97C0082B450 /* iOSAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74117C31EB2E97C0082B450 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D74117CE1EB2E97C0082B450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 			children = (
 				D787EDCA1EB9CBB0003B8C29 /* HILayerPathController.h */,
 				D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */,
+				D0372E652061152900BA83EC /* HILayerStrokeController.h */,
+				D0372E662061152900BA83EC /* HILayerStrokeController.m */,
 			);
 			path = shapeLayer;
 			sourceTree = "<group>";
@@ -220,7 +225,7 @@
 				TargetAttributes = {
 					D74117BE1EB2E97C0082B450 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = KPC52YPZEQ;
+						DevelopmentTeam = MZC5RAM649;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -270,6 +275,7 @@
 				D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */,
 				D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */,
 				D74117E11EB2ED340082B450 /* ViewController.m in Sources */,
+				D0372E672061152900BA83EC /* HILayerStrokeController.m in Sources */,
 				D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */,
 				D787EDCC1EB9CBB0003B8C29 /* HILayerPathController.m in Sources */,
 				D74117E01EB2ED340082B450 /* AppDelegate.m in Sources */,
@@ -407,7 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KPC52YPZEQ;
+				DEVELOPMENT_TEAM = MZC5RAM649;
 				INFOPLIST_FILE = iOSAnimation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -420,7 +426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KPC52YPZEQ;
+				DEVELOPMENT_TEAM = MZC5RAM649;
 				INFOPLIST_FILE = iOSAnimation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
