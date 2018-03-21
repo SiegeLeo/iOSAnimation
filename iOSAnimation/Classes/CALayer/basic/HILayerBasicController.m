@@ -16,6 +16,7 @@
 /** shapeLayer*/
 #import "HILayerPathController.h"
 #import "HILayerStrokeController.h"
+#import "HILayerFillController.h"
 
 @interface HILayerBasicController ()
 
@@ -117,6 +118,7 @@
     NSArray *shapeLayerProperties = @[
                                       @"path",
                                       @"strokes",
+                                      @"fills",
                                       ];
     return shapeLayerProperties;
 }
@@ -165,6 +167,7 @@
     NSArray *shapeLayerPropertyDetails = @[
                                           @"Class: HILayerPathController, path",
                                           @"Class: HILayerStrokeController, strokeColor、strokeStart、strokeEnd",
+                                          @"Class: HILayerFillController, fillColor、fillRule",
                                           ];
     return shapeLayerPropertyDetails;
 }
@@ -211,6 +214,7 @@
     NSArray *shapeLayerClasses = @[
                                    [HILayerPathController class],
                                    [HILayerStrokeController class],
+                                   [HILayerFillController class],
                                    ];
     return shapeLayerClasses;
 }
