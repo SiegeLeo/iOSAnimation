@@ -23,9 +23,7 @@
 
 @end
 
-
 @implementation HILayerLineController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
