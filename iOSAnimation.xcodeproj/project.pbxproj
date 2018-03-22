@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D02730D62063A36B008C8504 /* HILayerLineController.m in Sources */ = {isa = PBXBuildFile; fileRef = D02730D52063A36B008C8504 /* HILayerLineController.m */; };
 		D0372E672061152900BA83EC /* HILayerStrokeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0372E662061152900BA83EC /* HILayerStrokeController.m */; };
 		D0372E6A206235B500BA83EC /* HILayerFillController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0372E69206235B500BA83EC /* HILayerFillController.m */; };
 		D74117C41EB2E97C0082B450 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D74117C31EB2E97C0082B450 /* main.m */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D02730D42063A36B008C8504 /* HILayerLineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerLineController.h; sourceTree = "<group>"; };
+		D02730D52063A36B008C8504 /* HILayerLineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HILayerLineController.m; sourceTree = "<group>"; };
 		D0372E652061152900BA83EC /* HILayerStrokeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerStrokeController.h; sourceTree = "<group>"; };
 		D0372E662061152900BA83EC /* HILayerStrokeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HILayerStrokeController.m; sourceTree = "<group>"; };
 		D0372E68206235B500BA83EC /* HILayerFillController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerFillController.h; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */,
 				D0372E68206235B500BA83EC /* HILayerFillController.h */,
 				D0372E69206235B500BA83EC /* HILayerFillController.m */,
+				D02730D42063A36B008C8504 /* HILayerLineController.h */,
+				D02730D52063A36B008C8504 /* HILayerLineController.m */,
 				D0372E652061152900BA83EC /* HILayerStrokeController.h */,
 				D0372E662061152900BA83EC /* HILayerStrokeController.m */,
 			);
@@ -285,6 +290,7 @@
 				D0372E672061152900BA83EC /* HILayerStrokeController.m in Sources */,
 				D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */,
 				D787EDCC1EB9CBB0003B8C29 /* HILayerPathController.m in Sources */,
+				D02730D62063A36B008C8504 /* HILayerLineController.m in Sources */,
 				D0372E6A206235B500BA83EC /* HILayerFillController.m in Sources */,
 				D74117E01EB2ED340082B450 /* AppDelegate.m in Sources */,
 				D74117E61EB2EDCB0082B450 /* HICALayerController.m in Sources */,

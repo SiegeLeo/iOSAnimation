@@ -17,6 +17,7 @@
 #import "HILayerPathController.h"
 #import "HILayerStrokeController.h"
 #import "HILayerFillController.h"
+#import "HILayerLineController.h"
 
 @interface HILayerBasicController ()
 
@@ -119,6 +120,7 @@
                                       @"path",
                                       @"strokes",
                                       @"fills",
+                                      @"lines",
                                       ];
     return shapeLayerProperties;
 }
@@ -154,7 +156,6 @@
                                       @"Class: HILayerTransformController, transform",
                                       @"Class: HILayerMaskController, mask",
                                       @"Class: HILayerContentsController, contents",
-
                                      ];
     return layerPropertyDetails;
 }
@@ -168,6 +169,7 @@
                                           @"Class: HILayerPathController, path",
                                           @"Class: HILayerStrokeController, strokeColor、strokeStart、strokeEnd",
                                           @"Class: HILayerFillController, fillColor、fillRule",
+                                          @"Class: HILayerLines, lineWidth、miterLimit、lineJoin、lineCap",
                                           ];
     return shapeLayerPropertyDetails;
 }
@@ -215,6 +217,7 @@
                                    [HILayerPathController class],
                                    [HILayerStrokeController class],
                                    [HILayerFillController class],
+                                   [HILayerLineController class],
                                    ];
     return shapeLayerClasses;
 }
