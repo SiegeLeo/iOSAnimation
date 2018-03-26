@@ -27,6 +27,7 @@
 		D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDC61EB88E4C003B8C29 /* HILayerContentsController.m */; };
 		D787EDC91EB9B7B2003B8C29 /* tree@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D787EDC81EB9B7B2003B8C29 /* tree@2x.png */; };
 		D787EDCC1EB9CBB0003B8C29 /* HILayerPathController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */; };
+		D7E293262069322000B4A655 /* HILayerLineDashController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E293252069322000B4A655 /* HILayerLineDashController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		D787EDC81EB9B7B2003B8C29 /* tree@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree@2x.png"; sourceTree = "<group>"; };
 		D787EDCA1EB9CBB0003B8C29 /* HILayerPathController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerPathController.h; sourceTree = "<group>"; };
 		D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerPathController.m; sourceTree = "<group>"; };
+		D7E293242069322000B4A655 /* HILayerLineDashController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerLineDashController.h; sourceTree = "<group>"; };
+		D7E293252069322000B4A655 /* HILayerLineDashController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HILayerLineDashController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 				D0372E69206235B500BA83EC /* HILayerFillController.m */,
 				D02730D42063A36B008C8504 /* HILayerLineController.h */,
 				D02730D52063A36B008C8504 /* HILayerLineController.m */,
+				D7E293242069322000B4A655 /* HILayerLineDashController.h */,
+				D7E293252069322000B4A655 /* HILayerLineDashController.m */,
 				D0372E652061152900BA83EC /* HILayerStrokeController.h */,
 				D0372E662061152900BA83EC /* HILayerStrokeController.m */,
 			);
@@ -237,7 +242,7 @@
 				TargetAttributes = {
 					D74117BE1EB2E97C0082B450 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = MZC5RAM649;
+						DevelopmentTeam = 7EP93Z2D6P;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -294,6 +299,7 @@
 				D0372E6A206235B500BA83EC /* HILayerFillController.m in Sources */,
 				D74117E01EB2ED340082B450 /* AppDelegate.m in Sources */,
 				D74117E61EB2EDCB0082B450 /* HICALayerController.m in Sources */,
+				D7E293262069322000B4A655 /* HILayerLineDashController.m in Sources */,
 				D74117C41EB2E97C0082B450 /* main.m in Sources */,
 				D74118111EB31E7E0082B450 /* HILayerBasicController.m in Sources */,
 			);
@@ -427,7 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MZC5RAM649;
+				DEVELOPMENT_TEAM = 7EP93Z2D6P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/iOSAnimation/Classes/PrefixHeader.pch";
 				INFOPLIST_FILE = iOSAnimation/Info.plist;
@@ -442,7 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MZC5RAM649;
+				DEVELOPMENT_TEAM = 7EP93Z2D6P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/iOSAnimation/Classes/PrefixHeader.pch";
 				INFOPLIST_FILE = iOSAnimation/Info.plist;

@@ -141,7 +141,9 @@
     if (indexPath.section == 0) {
         self.shapeLayer.path = ((UIBezierPath *)[paths objectAtIndex:indexPath.row]).CGPath;
     }else{
-        self.shapeLayer.path = (__bridge CGPathRef)[paths objectAtIndex:indexPath.row];
+        CGPathRef path = (__bridge CGPathRef)[paths objectAtIndex:indexPath.row];
+        self.shapeLayer.path = path;
+        CGPathRelease(path);
     }
     self.tableView.hidden = YES;
 }

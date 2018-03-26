@@ -18,6 +18,7 @@
 #import "HILayerStrokeController.h"
 #import "HILayerFillController.h"
 #import "HILayerLineController.h"
+#import "HILayerLineDashController.h"
 
 @interface HILayerBasicController ()
 
@@ -121,6 +122,7 @@
                                       @"strokes",
                                       @"fills",
                                       @"lines",
+                                      @"lineDash",
                                       ];
     return shapeLayerProperties;
 }
@@ -169,7 +171,8 @@
                                           @"Class: HILayerPathController, path",
                                           @"Class: HILayerStrokeController, strokeColor、strokeStart、strokeEnd",
                                           @"Class: HILayerFillController, fillColor、fillRule",
-                                          @"Class: HILayerLines, lineWidth、miterLimit、lineJoin、lineCap",
+                                          @"Class: HILayerLineController, lineWidth、miterLimit、lineJoin、lineCap",
+                                          @"Class: HILayerLineDashController, lineDashPhase、Dash、Pattern",
                                           ];
     return shapeLayerPropertyDetails;
 }
@@ -218,6 +221,7 @@
                                    [HILayerStrokeController class],
                                    [HILayerFillController class],
                                    [HILayerLineController class],
+                                   [HILayerLineDashController class],
                                    ];
     return shapeLayerClasses;
 }
