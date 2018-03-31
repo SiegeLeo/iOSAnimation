@@ -27,6 +27,7 @@
 		D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDC61EB88E4C003B8C29 /* HILayerContentsController.m */; };
 		D787EDC91EB9B7B2003B8C29 /* tree@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D787EDC81EB9B7B2003B8C29 /* tree@2x.png */; };
 		D787EDCC1EB9CBB0003B8C29 /* HILayerPathController.m in Sources */ = {isa = PBXBuildFile; fileRef = D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */; };
+		D79E6894206FDF8700104A1D /* HILayerPositionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79E6893206FDF8700104A1D /* HILayerPositionController.m */; };
 		D7E293262069322000B4A655 /* HILayerLineDashController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E293252069322000B4A655 /* HILayerLineDashController.m */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		D787EDC81EB9B7B2003B8C29 /* tree@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree@2x.png"; sourceTree = "<group>"; };
 		D787EDCA1EB9CBB0003B8C29 /* HILayerPathController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HILayerPathController.h; sourceTree = "<group>"; };
 		D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HILayerPathController.m; sourceTree = "<group>"; };
+		D79E6892206FDF8700104A1D /* HILayerPositionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerPositionController.h; sourceTree = "<group>"; };
+		D79E6893206FDF8700104A1D /* HILayerPositionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HILayerPositionController.m; sourceTree = "<group>"; };
 		D7E293242069322000B4A655 /* HILayerLineDashController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerLineDashController.h; sourceTree = "<group>"; };
 		D7E293252069322000B4A655 /* HILayerLineDashController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HILayerLineDashController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +179,8 @@
 		D74118121EB32F3E0082B450 /* layer */ = {
 			isa = PBXGroup;
 			children = (
+				D79E6892206FDF8700104A1D /* HILayerPositionController.h */,
+				D79E6893206FDF8700104A1D /* HILayerPositionController.m */,
 				D74118151EB32F9B0082B450 /* HILayerTransformController.h */,
 				D74118161EB32F9B0082B450 /* HILayerTransformController.m */,
 				D787EDC21EB87BA0003B8C29 /* HILayerMaskController.h */,
@@ -292,6 +297,7 @@
 				D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */,
 				D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */,
 				D74117E11EB2ED340082B450 /* ViewController.m in Sources */,
+				D79E6894206FDF8700104A1D /* HILayerPositionController.m in Sources */,
 				D0372E672061152900BA83EC /* HILayerStrokeController.m in Sources */,
 				D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */,
 				D787EDCC1EB9CBB0003B8C29 /* HILayerPathController.m in Sources */,

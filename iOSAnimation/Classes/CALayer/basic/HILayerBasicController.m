@@ -9,6 +9,7 @@
 #import "HILayerBasicController.h"
 
 /** Layer*/
+#import "HILayerPositionController.h"
 #import "HILayerTransformController.h"
 #import "HILayerMaskController.h"
 #import "HILayerContentsController.h"
@@ -105,6 +106,7 @@
  */
 - (NSArray *)layerProperties{
     NSArray *layerProperties = @[
+                                 @"position",
                                  @"transform",
                                  @"mask",
                                  @"contents",
@@ -155,6 +157,7 @@
  */
 - (NSArray *)layerPropertyDetails{
     NSArray *layerPropertyDetails = @[
+                                      @"Class: HILayerPositionController, position",
                                       @"Class: HILayerTransformController, transform",
                                       @"Class: HILayerMaskController, mask",
                                       @"Class: HILayerContentsController, contents",
@@ -205,6 +208,7 @@
  */
 - (NSArray *)layerClasses{
     NSArray *layerClasses = @[
+                              [HILayerPositionController class],
                               [HILayerTransformController class],
                               [HILayerMaskController class],
                               [HILayerContentsController class],
