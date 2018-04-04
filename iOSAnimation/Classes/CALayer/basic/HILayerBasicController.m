@@ -10,6 +10,7 @@
 
 /** Layer*/
 #import "HILayerPositionController.h"
+#import "HILayerBoundsController.h"
 #import "HILayerTransformController.h"
 #import "HILayerMaskController.h"
 #import "HILayerContentsController.h"
@@ -25,11 +26,17 @@
 
 @end
 
-@implementation HILayerBasicController
+@implementation HILayerBasicController {
+    UIStoryboard *layerPropertySB;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = NSLocalizedString(@"layerTitleBasic", nil);
+    
+    layerPropertySB = [UIStoryboard storyboardWithName:@"HILayerProperty" bundle:nil];
+    
 }
 
 
@@ -66,8 +73,12 @@
     if (indexPath.row + 1 > [[[self classes] objectAtIndex:indexPath.section] count]) {
         return;
     }
-    Class class = [[[self classes] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:[[class alloc] init] animated:YES];
+    
+//    Class class = [[[self classes] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+//    [self.navigationController pushViewController:[[class alloc] init] animated:YES];
+    
+    UIViewController *vc = [layerPropertySB instantiateViewControllerWithIdentifier:@"layer.Bounds"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -107,6 +118,7 @@
 - (NSArray *)layerProperties{
     NSArray *layerProperties = @[
                                  @"position",
+                                 @"bounds",
                                  @"transform",
                                  @"mask",
                                  @"contents",
@@ -158,6 +170,7 @@
 - (NSArray *)layerPropertyDetails{
     NSArray *layerPropertyDetails = @[
                                       @"Class: HILayerPositionController, position",
+                                      @"Class: HILayerBoundsController, bounds",
                                       @"Class: HILayerTransformController, transform",
                                       @"Class: HILayerMaskController, mask",
                                       @"Class: HILayerContentsController, contents",
@@ -209,6 +222,7 @@
 - (NSArray *)layerClasses{
     NSArray *layerClasses = @[
                               [HILayerPositionController class],
+                              [HILayerBoundsController class],
                               [HILayerTransformController class],
                               [HILayerMaskController class],
                               [HILayerContentsController class],

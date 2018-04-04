@@ -10,6 +10,10 @@
 		D02730D62063A36B008C8504 /* HILayerLineController.m in Sources */ = {isa = PBXBuildFile; fileRef = D02730D52063A36B008C8504 /* HILayerLineController.m */; };
 		D0372E672061152900BA83EC /* HILayerStrokeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0372E662061152900BA83EC /* HILayerStrokeController.m */; };
 		D0372E6A206235B500BA83EC /* HILayerFillController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0372E69206235B500BA83EC /* HILayerFillController.m */; };
+		D0799FC320737F6F00CCA26A /* HILayerBoundsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0799FC220737F6F00CCA26A /* HILayerBoundsController.m */; };
+		D0799FC520737FE200CCA26A /* HILayerProperty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0799FC420737FE200CCA26A /* HILayerProperty.storyboard */; };
+		D0799FCC2074508400CCA26A /* HISliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0799FCB2074508400CCA26A /* HISliderView.m */; };
+		D0799FCE2074509E00CCA26A /* HISliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0799FCD2074509E00CCA26A /* HISliderView.xib */; };
 		D74117C41EB2E97C0082B450 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D74117C31EB2E97C0082B450 /* main.m */; };
 		D74117CF1EB2E97C0082B450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74117CE1EB2E97C0082B450 /* Assets.xcassets */; };
 		D74117D21EB2E97C0082B450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74117D01EB2E97C0082B450 /* LaunchScreen.storyboard */; };
@@ -39,6 +43,12 @@
 		D0372E68206235B500BA83EC /* HILayerFillController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerFillController.h; sourceTree = "<group>"; };
 		D0372E69206235B500BA83EC /* HILayerFillController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HILayerFillController.m; sourceTree = "<group>"; };
 		D0372E6B2062394400BA83EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D0799FC120737F6F00CCA26A /* HILayerBoundsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerBoundsController.h; sourceTree = "<group>"; };
+		D0799FC220737F6F00CCA26A /* HILayerBoundsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HILayerBoundsController.m; sourceTree = "<group>"; };
+		D0799FC420737FE200CCA26A /* HILayerProperty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HILayerProperty.storyboard; sourceTree = "<group>"; };
+		D0799FCA2074508400CCA26A /* HISliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HISliderView.h; sourceTree = "<group>"; };
+		D0799FCB2074508400CCA26A /* HISliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HISliderView.m; sourceTree = "<group>"; };
+		D0799FCD2074509E00CCA26A /* HISliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HISliderView.xib; sourceTree = "<group>"; };
 		D74117BF1EB2E97C0082B450 /* iOSAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74117C31EB2E97C0082B450 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D74117CE1EB2E97C0082B450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +98,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0799FC620744DCB00CCA26A /* custom */ = {
+			isa = PBXGroup;
+			children = (
+				D0799FCA2074508400CCA26A /* HISliderView.h */,
+				D0799FCB2074508400CCA26A /* HISliderView.m */,
+				D0799FCD2074509E00CCA26A /* HISliderView.xib */,
+			);
+			path = custom;
+			sourceTree = "<group>";
+		};
 		D74117B61EB2E97C0082B450 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +153,7 @@
 		D74117D91EB2ED340082B450 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D0799FC620744DCB00CCA26A /* custom */,
 				D74117E21EB2ED5E0082B450 /* Main.storyboard */,
 				D0372E6B2062394400BA83EC /* PrefixHeader.pch */,
 				D74117DA1EB2ED340082B450 /* AppDelegate.h */,
@@ -179,8 +200,11 @@
 		D74118121EB32F3E0082B450 /* layer */ = {
 			isa = PBXGroup;
 			children = (
+				D0799FC420737FE200CCA26A /* HILayerProperty.storyboard */,
 				D79E6892206FDF8700104A1D /* HILayerPositionController.h */,
 				D79E6893206FDF8700104A1D /* HILayerPositionController.m */,
+				D0799FC120737F6F00CCA26A /* HILayerBoundsController.h */,
+				D0799FC220737F6F00CCA26A /* HILayerBoundsController.m */,
 				D74118151EB32F9B0082B450 /* HILayerTransformController.h */,
 				D74118161EB32F9B0082B450 /* HILayerTransformController.m */,
 				D787EDC21EB87BA0003B8C29 /* HILayerMaskController.h */,
@@ -242,12 +266,12 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HI;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = h_nChen;
 				TargetAttributes = {
 					D74117BE1EB2E97C0082B450 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7EP93Z2D6P;
+						DevelopmentTeam = MZC5RAM649;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -280,8 +304,10 @@
 				D787EDC11EB861CB003B8C29 /* huaji.png in Resources */,
 				D787EDC91EB9B7B2003B8C29 /* tree@2x.png in Resources */,
 				D74117E31EB2ED5E0082B450 /* Main.storyboard in Resources */,
+				D0799FCE2074509E00CCA26A /* HISliderView.xib in Resources */,
 				D74117D21EB2E97C0082B450 /* LaunchScreen.storyboard in Resources */,
 				D74117CF1EB2E97C0082B450 /* Assets.xcassets in Resources */,
+				D0799FC520737FE200CCA26A /* HILayerProperty.storyboard in Resources */,
 				D741180A1EB2FB800082B450 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D787EDC41EB87BA0003B8C29 /* HILayerMaskController.m in Sources */,
+				D0799FC320737F6F00CCA26A /* HILayerBoundsController.m in Sources */,
 				D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */,
 				D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */,
 				D74117E11EB2ED340082B450 /* ViewController.m in Sources */,
@@ -301,6 +328,7 @@
 				D0372E672061152900BA83EC /* HILayerStrokeController.m in Sources */,
 				D787EDC71EB88E4C003B8C29 /* HILayerContentsController.m in Sources */,
 				D787EDCC1EB9CBB0003B8C29 /* HILayerPathController.m in Sources */,
+				D0799FCC2074508400CCA26A /* HISliderView.m in Sources */,
 				D02730D62063A36B008C8504 /* HILayerLineController.m in Sources */,
 				D0372E6A206235B500BA83EC /* HILayerFillController.m in Sources */,
 				D74117E01EB2ED340082B450 /* AppDelegate.m in Sources */,
@@ -355,15 +383,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -403,15 +440,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -439,12 +485,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7EP93Z2D6P;
+				DEVELOPMENT_TEAM = MZC5RAM649;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/iOSAnimation/Classes/PrefixHeader.pch";
 				INFOPLIST_FILE = iOSAnimation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HIChen.iOSAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -454,12 +500,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7EP93Z2D6P;
+				DEVELOPMENT_TEAM = MZC5RAM649;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/iOSAnimation/Classes/PrefixHeader.pch";
 				INFOPLIST_FILE = iOSAnimation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HIChen.iOSAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "HIUIViewController.h"
 #import "HICALayerController.h"
+#import "HISliderView.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -26,6 +27,7 @@
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
+    
 }
 
 
