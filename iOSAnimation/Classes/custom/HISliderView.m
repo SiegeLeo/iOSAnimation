@@ -12,7 +12,6 @@
 
 @property (nonatomic, strong) IBOutlet UIView *contentView;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UISlider *slider;
 
 /** 标题*/
 @property (nonatomic, strong) IBInspectable NSString *title;
@@ -21,7 +20,6 @@
 @end
 
 @implementation HISliderView
-
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
@@ -33,7 +31,7 @@
 }
 
 - (void)setTitle:(NSString *)title {
-    self.titleLabel.text = title;
+    self.titleLabel.text = [NSString stringWithFormat:@"%@: ", title];
 }
 
 - (IBAction)sliderChange:(id)sender {

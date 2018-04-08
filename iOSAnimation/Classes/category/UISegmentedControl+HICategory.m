@@ -9,19 +9,19 @@
 #import "UISegmentedControl+HICategory.h"
 #import <objc/runtime.h>
 
-static void *hi_clickedBlock = &hi_clickedBlock;
+static void *key_hi_clickedBlock = &key_hi_clickedBlock;
 
 @implementation UISegmentedControl (HICategory)
 
 - (void)setHi_clickedBlock:(void (^)(UISegmentedControl *))hi_clickedBlock {
     if (hi_clickedBlock) {
-        objc_setAssociatedObject(self, &hi_clickedBlock, hi_clickedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+        objc_setAssociatedObject(self, &key_hi_clickedBlock, hi_clickedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
         [self addTarget:self action:@selector(segmentedChanged:) forControlEvents:UIControlEventValueChanged];
     }
 }
 
 - (void (^)(UISegmentedControl *))hi_clickedBlock {
-    return objc_getAssociatedObject(self, &hi_clickedBlock);
+    return objc_getAssociatedObject(self, &key_hi_clickedBlock);
 }
 
 #pragma mark - private

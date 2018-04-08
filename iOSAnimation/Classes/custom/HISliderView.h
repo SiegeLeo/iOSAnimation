@@ -12,6 +12,8 @@ IB_DESIGNABLE
 
 @interface HISliderView : UIView
 
+@property (nonatomic, strong) IBOutlet UISlider *slider;
+
 /** slider的block回调*/
 @property (nonatomic, strong) void(^valueChangeBlock)(float value);
 

@@ -7,6 +7,10 @@
 //
 
 #import "HILayerTransformController.h"
+#import "HISliderView.h"
+
+#import "UISegmentedControl+HICategory.h"
+#import "UISlider+HICategory.h"
 
 #define ITEM_WIDTH  64.0
 #define ITEM_HEIGHT 32.0
@@ -15,15 +19,16 @@
 
 @interface HILayerTransformController ()
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *modeSegment;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *actionSegment;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *directionSegment;
+@property (weak, nonatomic) IBOutlet HISliderView *sliderView;
+@property (weak, nonatomic) IBOutlet UIView *blueView;
+
 @property (nonatomic, strong) CALayer *layer;
 @property (nonatomic, strong) CALayer *benchmarkLayer;
 
 @property (nonatomic, strong) UILabel *tips;
-
-@property (nonatomic, strong) UISegmentedControl *modeSegment;
-@property (nonatomic, strong) UISegmentedControl *actionSegment;
-@property (nonatomic, strong) UISegmentedControl *directionSegment;
-@property (nonatomic, strong) UISlider *slider;
 
 @property (nonatomic, assign) CALayerTransformDirection direction;
 @property (nonatomic, assign) CALayerTransformAction action;
@@ -36,51 +41,75 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"transform";
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    [self.view.layer addSublayer:self.layer];
+    self.layer = self.blueView.layer;
+    /* open this code, the layer will display a image, help observing the change
+     * 打开这段代码，该layer将显示一个图片，有助于观察变化
+     */
+    self.layer.contents = (id)[UIImage imageNamed:@"huaji"].CGImage;
+     
     [self.view.layer addSublayer:self.benchmarkLayer];
-    
     [self.view addSubview:self.tips];
     
-    [self.view addSubview:self.actionSegment];
-    [self.view addSubview:self.directionSegment];
-    [self.view addSubview:self.slider];
+    [self reset:nil];
     
-    self.navigationItem.titleView = self.modeSegment;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"reset" style:UIBarButtonItemStylePlain target:self action:@selector(reset)];
+    //
+    __weak typeof(self) weakSelf = self;
+    self.modeSegment.hi_clickedBlock = ^(UISegmentedControl *segment) {
+        [weakSelf reset:nil];
+    };
+    self.actionSegment.hi_clickedBlock = ^(UISegmentedControl *segment) {
+        weakSelf.action = segment.selectedSegmentIndex;
+        [weakSelf reset:nil];
+    };
+    self.directionSegment.hi_clickedBlock = ^(UISegmentedControl *segment) {
+        weakSelf.direction = segment.selectedSegmentIndex;
+        [weakSelf reset:nil];
+    };
     
-    [self reset];
-    
+    self.sliderView.valueChangeBlock = ^(float value) {
+        if (weakSelf.modeSegment.selectedSegmentIndex == CALayerTransformMode3D) {
+            switch (weakSelf.action) {
+                case CALayerTransformActionTranslate:
+                    [weakSelf translate:value];
+                    break;
+                case CALayerTransformActionRotate:
+                    [weakSelf rotate:value];
+                    break;
+                case CALayerTransformActionScale:
+                    [weakSelf scale:value];
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            switch (weakSelf.action) {
+                case CALayerTransformActionTranslate:
+                    [weakSelf setTranslation:value];
+                    break;
+                case CALayerTransformActionRotate:
+                    [weakSelf setRotation:value];
+                    break;
+                case CALayerTransformActionScale:
+                    [weakSelf setScale:value];
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }
 
 #pragma mark - getter
-- (CALayer *)layer{
-    if (!_layer) {
-        _layer = [CALayer layer];
-        _layer.frame = CGRectMake((self.view.bounds.size.width - LAYER_WIDTH) * 0.5, (self.view.bounds.size.height - LAYER_WIDTH) * 0.5, LAYER_WIDTH, LAYER_WIDTH);
-        _layer.backgroundColor = [UIColor redColor].CGColor;
-        
-        /* open this code, the layer will display a image, help observing the change
-         * 打开这段代码，该layer将显示一个图片，有助于观察变化
-         
-        _layer.contents = (id)[UIImage imageNamed:@"huaji"].CGImage;
-         */
-    }
-    return _layer;
-}
-
-- (CALayer *)benchmarkLayer{
+- (CALayer *)benchmarkLayer {
     if (!_benchmarkLayer) {
         _benchmarkLayer = [CALayer layer];
         _benchmarkLayer.frame = CGRectMake(CGRectGetMidX(self.layer.frame), CGRectGetMidY(self.layer.frame), LAYER_WIDTH, LAYER_WIDTH);
-        _benchmarkLayer.backgroundColor = [UIColor blueColor].CGColor;
+        _benchmarkLayer.backgroundColor = [UIColor redColor].CGColor;
     }
     return _benchmarkLayer;
 }
 
--(UILabel *)tips{
+-(UILabel *)tips {
     if (!_tips) {
         _tips = [[UILabel alloc] init];
         _tips.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.5];
@@ -96,124 +125,13 @@
     return _tips;
 }
 
-- (UISegmentedControl *)modeSegment{
-    if (!_modeSegment) {
-        NSArray *items = @[@"Transform3D", @"forKeyPath"];
-        CGFloat segmentW = items.count * ITEM_WIDTH;
-        CGFloat segmentH = ITEM_HEIGHT;
-        CGFloat segmentX = 0;
-        CGFloat segmentY = 0;
-        
-        _modeSegment = [[UISegmentedControl alloc] initWithItems:items];
-        _modeSegment.frame = CGRectMake(segmentX, segmentY, segmentW, segmentH);
-        _modeSegment.selectedSegmentIndex = CALayerTransformMode3D;
-        [_modeSegment addTarget:self action:@selector(selectedMode:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _modeSegment;
-}
-
-
-- (UISegmentedControl *)actionSegment{
-    if (!_actionSegment) {
-        NSArray *items = @[@"translate", @"scale", @"rotate"];
-        CGFloat segmentW = items.count * ITEM_WIDTH;
-        CGFloat segmentH = ITEM_HEIGHT;
-        CGFloat segmentX = (self.view.bounds.size.width - segmentW) * 0.5;
-        CGFloat segmentY = 64 + MARGIN;
-        
-        _actionSegment = [[UISegmentedControl alloc] initWithItems:items];
-        _actionSegment.frame = CGRectMake(segmentX, segmentY, segmentW, segmentH);
-        _actionSegment.selectedSegmentIndex = CALayerTransformActionTranslate;
-        [_actionSegment addTarget:self action:@selector(selectedAction:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _actionSegment;
-}
-
-
-- (UISegmentedControl *)directionSegment{
-    if (!_directionSegment) {
-        NSArray *items = @[@"x", @"y", @"z"];
-        CGFloat segmentW = items.count * ITEM_WIDTH;
-        CGFloat segmentH = ITEM_HEIGHT;
-        CGFloat segmentX = (self.view.bounds.size.width - segmentW) * 0.5;
-        CGFloat segmentY = CGRectGetMaxY(self.actionSegment.frame) + MARGIN;
-        
-        _directionSegment = [[UISegmentedControl alloc] initWithItems:items];
-        _directionSegment.frame = CGRectMake(segmentX, segmentY, segmentW, segmentH);
-        _directionSegment.selectedSegmentIndex = CALayerTransformDirectionX;
-        [_directionSegment addTarget:self action:@selector(selectedDirection:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _directionSegment;
-}
-
-- (UISlider *)slider{
-    if (!_slider) {
-        CGFloat sliderW = self.directionSegment.frame.size.width;
-        CGFloat sliderH = self.directionSegment.frame.size.height;
-        CGFloat sliderX = self.directionSegment.frame.origin.x;
-        CGFloat sliderY = CGRectGetMaxY(self.directionSegment.frame) + MARGIN;
-        _slider = [[UISlider alloc] init];
-        _slider.frame = CGRectMake(sliderX, sliderY, sliderW, sliderH);
-        _slider.value = 0.5;
-        [_slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _slider;
-}
-
-
-#pragma mark - action
-- (void)selectedMode:(UISegmentedControl *)segment{
-    [self reset];
-}
-
-- (void)selectedDirection:(UISegmentedControl *)segment{
-    self.direction = segment.selectedSegmentIndex;
-    [self reset];
-}
-
-- (void)selectedAction:(UISegmentedControl *)segment{
-    self.action = segment.selectedSegmentIndex;
-    [self reset];
-}
-
-- (void)sliderChanged:(UISlider *)slider{
-    if (self.modeSegment.selectedSegmentIndex == CALayerTransformMode3D) {
-        switch (self.action) {
-            case CALayerTransformActionTranslate:
-                [self translate:slider.value];
-                break;
-            case CALayerTransformActionRotate:
-                [self rotate:slider.value];
-                break;
-            case CALayerTransformActionScale:
-                [self scale:slider.value];
-                break;
-            default:
-                break;
-        }
-    } else {
-        switch (self.action) {
-            case CALayerTransformActionTranslate:
-                [self setTranslation:slider.value];
-                break;
-            case CALayerTransformActionRotate:
-                [self setRotation:slider.value];
-                break;
-            case CALayerTransformActionScale:
-                [self setScale:slider.value];
-                break;
-            default:
-                break;
-        }
-    }
-}
 
 /**
  * set layer's default transform
  * 重置layer的变化
  */
-- (void)reset{
-    self.slider.value = 0.5;
+- (IBAction)reset:(id)sender {
+    self.sliderView.slider.value = 0.5;
     self.layer.transform = CATransform3DIdentity;
     
     if (self.direction == CALayerTransformDirectionZ && self.action == CALayerTransformActionTranslate) {
@@ -235,7 +153,7 @@
  * translate by CATransform3D
  * 通过CATransform3D控制位移
  */
-- (void)translate:(CGFloat)value{
+- (void)translate:(CGFloat)value {
     CGFloat tx = 0;
     CGFloat ty = 0;
     CGFloat tz = 0;
@@ -260,7 +178,7 @@
  * rotate by CATransform3D
  * 通过CATransform3D控制旋转
  */
-- (void)rotate:(CGFloat)value{
+- (void)rotate:(CGFloat)value {
     CGFloat dx = 0;
     CGFloat dy = 0;
     CGFloat dz = 0;
@@ -287,7 +205,7 @@
  * scale by CATransform3D
  * 通过CATransform3D控制缩放
  */
-- (void)scale:(CGFloat)value{
+- (void)scale:(CGFloat)value {
     CGFloat sx = 1;
     CGFloat sy = 1;
     CGFloat sz = 1;
@@ -309,7 +227,7 @@
 }
 
 // transform.translation.x/y/z
-- (void)setTranslation:(CGFloat)value{
+- (void)setTranslation:(CGFloat)value {
     CGFloat distance = (value - 0.5) * 100;
     switch (self.direction) {
         case CALayerTransformDirectionX:
@@ -327,7 +245,7 @@
 }
 
 // transform.rotation.x/y/z
-- (void)setRotation:(CGFloat)value{
+- (void)setRotation:(CGFloat)value {
     
     CGFloat angle = (value - 0.5) * (M_PI / 0.5);
     
@@ -347,7 +265,7 @@
 }
 
 // transfor.scale.x/y/z
-- (void)setScale:(CGFloat)value{
+- (void)setScale:(CGFloat)value {
     CGFloat scale = 1 + (value - 0.5) * 2;
     switch (self.direction) {
         case CALayerTransformDirectionX:

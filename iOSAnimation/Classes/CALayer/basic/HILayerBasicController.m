@@ -107,7 +107,7 @@
                         [HIControllerItem instance:^(HIControllerItem *item) {
                             item.title = @"transform";
                             item.detail = @"Class: HILayerTransformController, transform";
-                            item.controller = [[HILayerTransformController alloc] init];
+                            item.controller = [self.layerPropertySB instantiateViewControllerWithIdentifier:@"layer.Transform"];
                         }],
                         [HIControllerItem instance:^(HIControllerItem *item) {
                             item.title = @"mask";
