@@ -24,22 +24,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.title = @"bounds";
-
-    CGSize size = self.blueView.layer.bounds.size;
-    
-    self.wSlider.valueChangeBlock = ^(float value) {
-        CGFloat width = (value - 0.5) * 100  + size.width;
-        [self.blueView.layer setValue:@(width) forKeyPath:@"bounds.size.width"];
-    };
-    self.hSlider.valueChangeBlock = ^(float value) {
-        CGFloat height = (value - 0.5) * 100  + size.height;
-        [self.blueView.layer setValue:@(height) forKeyPath:@"bounds.size.height"];
-    };
 }
 
 - (void)viewDidLayoutSubviews {
+    __weak typeof(self) weakSelf = self;
+    self.wSlider.valueChangeBlock = ^(float value) {
+        CGFloat width = (value - 0.5) * 100  + weakSelf.blueView.layer.bounds.size.width;
+        [weakSelf.blueView.layer setValue:@(width) forKeyPath:@"bounds.size.width"];
+        
+        /* bounds also can be changed in the way
+         [weakSelf.blueView.layer setValue:[NSValue valueWithCGRect:CGRectMake(0, 0, width, weakSelf.blueView.layer.bounds.size.height)] forKey:@"bounds"];
+         */
+    };
+    
+    self.hSlider.valueChangeBlock = ^(float value) {
+        CGFloat height = (value - 0.5) * 100  + weakSelf.blueView.layer.bounds.size.height;
+        [weakSelf.blueView.layer setValue:@(height) forKeyPath:@"bounds.size.height"];
+        
+        /* bounds also can be changed in the way
+         [weakSelf.blueView.layer setValue:[NSValue valueWithCGRect:CGRectMake(0, 0, width = weakSelf.blueView.layer.bounds.size.width, height)] forKey:@"bounds"];
+         */
+    };
 }
 
 - (void)didReceiveMemoryWarning {

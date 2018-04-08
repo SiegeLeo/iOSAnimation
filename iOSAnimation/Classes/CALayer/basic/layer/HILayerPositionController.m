@@ -37,7 +37,6 @@
 }
 
 - (void)viewDidLayoutSubviews {
-    CGPoint originPosition = self.blueView.layer.position;
     
     self.oldPoint.position = self.blueView.layer.position;
     [self.view.layer addSublayer:self.oldPoint];
@@ -46,15 +45,23 @@
     
     __weak typeof(self) weakSelf = self;
     self.xSlider.valueChangeBlock = ^(float value) {
-        CGFloat newX = originPosition.x + (value - 0.5) * 100;
+        CGFloat newX = weakSelf.blueView.layer.position.x + (value - 0.5) * 100;
         [weakSelf.blueView.layer setValue:@(newX) forKeyPath:@"position.x"];
+        
+        /* position also can be changed in the way
+        [weakSelf.blueView.layer setValue:[NSValue valueWithCGPoint:CGPointMake(newX, weakSelf.blueView.layer.position.y)] forKey:@"position"];
+         */
         
         // newPosition's Point
         weakSelf.newPoint.position = CGPointMake(newX, weakSelf.blueView.layer.position.y);
     };
     self.ySlider.valueChangeBlock = ^(float value) {
-        CGFloat newY = originPosition.y + (value - 0.5) * 100;
+        CGFloat newY = weakSelf.blueView.layer.position.y + (value - 0.5) * 100;
         [weakSelf.blueView.layer setValue:@(newY) forKeyPath:@"position.y"];
+        
+        /* position also can be changed in the way
+        [weakSelf.blueView.layer setValue:[NSValue valueWithCGPoint:CGPointMake(weakSelf.blueView.layer.position.x, newY)] forKey:@"position"];
+         */
         
         // newPosition's Point
         weakSelf.newPoint.position = CGPointMake(weakSelf.blueView.layer.position.x, newY);
