@@ -6,8 +6,8 @@
 //  Copyright © 2017年 h_nChen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HIBaseTableViewController.h"
 
-@interface HILayerBasicController : UITableViewController
+@interface HILayerBasicController : HIBaseTableViewController
 
 @end

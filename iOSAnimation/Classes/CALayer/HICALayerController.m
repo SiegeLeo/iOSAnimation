@@ -7,6 +7,7 @@
 //
 
 #import "HICALayerController.h"
+#import "HIControllerItem.h"
 #import "HILayerBasicController.h"
 
 @interface HICALayerController ()
@@ -25,6 +26,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = NSLocalizedString(@"layerTitle", nil);
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,71 +36,75 @@
 
 #pragma mark - TableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self titles].count;
+    return self.datas.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CALayer"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = [[self titles] objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [[self details] objectAtIndex:indexPath.row];
+    
+    HIControllerItem *item = [self.datas objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = item.title;
+    cell.detailTextLabel.text = item.detail;
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row + 1 > [self classes].count) {
+    HIControllerItem *item = [self.datas objectAtIndex:indexPath.row];
+    if (!item.controller) {
         return;
     }
-    
-    [self.navigationController pushViewController:[[(Class)[[self classes] objectAtIndex:indexPath.row] alloc] init] animated:YES];
+    [self.navigationController pushViewController:item.controller animated:YES];
 }
 
 
 #pragma mark - getter
-
-/**
- * 分类的标题
- * class's title
- */
-- (NSArray *)titles{
-    NSArray *titles = @[@"Basic",
-                        @"CAAnimation",
-                        @"CABasicAnimation",
-                        @"CAKeyFrameAnimation",
-                        @"CAGroupAnimation",
-                        @"CAAnimationDelegate",
-                        @"AdvancedAnimation"
-                        ];
-    return titles;
-}
-
-/**
- * 分类的详细描述
- * class's description
- */
-- (NSArray *)details{
-    NSArray *details = @[
-                         NSLocalizedString(@"CABasic", nil),
-                         NSLocalizedString(@"CAAnimation", nil),
-                         NSLocalizedString(@"CABasicAnimation", nil),
-                         NSLocalizedString(@"CAKeyFrameAnimation", nil),
-                         NSLocalizedString(@"CAGroupAnimation", nil),
-                         NSLocalizedString(@"CAAnimationDelegate", nil),
-                         NSLocalizedString(@"CAAdvancedAnimation", nil),
-                         ];
-    return details;
-}
-
-/**
- * 控制器的class
- * controller's class
- */
-- (NSArray *)classes{
-    NSArray *classes = @[[HILayerBasicController class],
-                         
-                         ];
-    return classes;
+- (void)setControllers {
+    __weak typeof(self) weakSelf = self;
+    [HIControllerItem instance:^(HIControllerItem *item) {
+        item.title = @"Basic";
+        item.detail = NSLocalizedString(@"CABasic", nil);
+        item.controller = [[HILayerBasicController alloc] init];
+        [weakSelf.datas addObject:item];
+    }];
+    [HIControllerItem instance:^(HIControllerItem *item) {
+        item.title = @"CAAnimation";
+        item.detail = NSLocalizedString(@"CAAnimation", nil);
+        item.controller = nil;
+        [weakSelf.datas addObject:item];
+    }];
+    [HIControllerItem instance:^(HIControllerItem *item) {
+        item.title = @"CABasicAnimation";
+        item.detail = NSLocalizedString(@"CABasicAnimation", nil);
+        item.controller = nil;
+        [weakSelf.datas addObject:item];
+    }];
+    [HIControllerItem instance:^(HIControllerItem *item) {
+        item.title = @"CAKeyFrameAnimation";
+        item.detail = NSLocalizedString(@"CAKeyFrameAnimation", nil);
+        item.controller = nil;
+        [weakSelf.datas addObject:item];
+    }];
+    [HIControllerItem instance:^(HIControllerItem *item) {
+        item.title = @"CAGroupAnimation";
+        item.detail = NSLocalizedString(@"CAGroupAnimation", nil);
+        item.controller = nil;
+        [weakSelf.datas addObject:item];
+    }];
+    [HIControllerItem instance:^(HIControllerItem *item) {
+        item.title = @"CAAnimationDelegate";
+        item.detail = NSLocalizedString(@"CAAnimationDelegate", nil);
+        item.controller = nil;
+        [weakSelf.datas addObject:item];
+    }];
+    [HIControllerItem instance:^(HIControllerItem *item) {
+        item.title = @"AdvancedAnimation";
+        item.detail = NSLocalizedString(@"CAAdvancedAnimation", nil);
+        item.controller = nil;
+        [weakSelf.datas addObject:item];
+    }];
 }
 
 @end

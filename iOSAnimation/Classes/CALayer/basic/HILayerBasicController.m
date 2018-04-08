@@ -25,9 +25,6 @@
 
 @interface HILayerBasicController ()
 
-/** dataSource*/
-@property (nonatomic, strong) NSMutableArray <HIControllerItemGroup *> *datas;
-
 /** layer's storyboard*/
 @property (nonatomic, strong) UIStoryboard *layerPropertySB;
 
@@ -39,10 +36,8 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"layerTitleBasic", nil);
+
     
-    self.layerPropertySB = [UIStoryboard storyboardWithName:@"HILayerProperty" bundle:nil];
-    
-    [self setControllers];
 }
 
 
@@ -80,23 +75,19 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     HIControllerItemGroup *group = [self.datas objectAtIndex:indexPath.section];
-    if (indexPath.row + 1 > group.items.count) {
+    HIControllerItem *item = [group.items objectAtIndex:indexPath.row];
+    if (!item.controller) {
         return;
     }
-    HIControllerItem *item = [group.items objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:item.controller animated:YES];
 }
 
 
 #pragma mark - getter
-- (NSMutableArray *)datas {
-    if (!_datas) {
-        _datas = [NSMutableArray array];
-    }
-    return _datas;
-}
 
 - (void)setControllers {
+    self.layerPropertySB = [UIStoryboard storyboardWithName:@"HILayerProperty" bundle:nil];
+    
     __weak typeof(self) weakSelf = self;
     
     // layer
