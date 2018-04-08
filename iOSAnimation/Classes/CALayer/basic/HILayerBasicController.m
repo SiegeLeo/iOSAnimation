@@ -7,6 +7,7 @@
 //
 
 #import "HILayerBasicController.h"
+#import "HIControllerItem.h"
 
 /** Layer*/
 #import "HILayerPositionController.h"
@@ -24,30 +25,36 @@
 
 @interface HILayerBasicController ()
 
+/** dataSource*/
+@property (nonatomic, strong) NSMutableArray <HIControllerItemGroup *> *datas;
+
+/** layer's storyboard*/
+@property (nonatomic, strong) UIStoryboard *layerPropertySB;
+
 @end
 
-@implementation HILayerBasicController {
-    UIStoryboard *layerPropertySB;
-}
+@implementation HILayerBasicController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"layerTitleBasic", nil);
     
-    layerPropertySB = [UIStoryboard storyboardWithName:@"HILayerProperty" bundle:nil];
+    self.layerPropertySB = [UIStoryboard storyboardWithName:@"HILayerProperty" bundle:nil];
     
+    [self setControllers];
 }
 
 
 #pragma mark - TableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self propertyTitles] count];
+    return self.datas.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [(NSArray *)[[self propertyTitles] objectAtIndex:section] count];
+    HIControllerItemGroup *group = [self.datas objectAtIndex:section];
+    return group.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,201 +63,114 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ids];
     }
+    HIControllerItemGroup *group = [self.datas objectAtIndex:indexPath.section];
+    HIControllerItem *item = [group.items objectAtIndex:indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = [[[self propertyTitles] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [[[self propertyDetails] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.title;
+    cell.detailTextLabel.text = item.detail;
     cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
-    return [[self titles] objectAtIndex:section];
+    HIControllerItemGroup *group = [self.datas objectAtIndex:section];
+    return group.title;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row + 1 > [[[self classes] objectAtIndex:indexPath.section] count]) {
+    HIControllerItemGroup *group = [self.datas objectAtIndex:indexPath.section];
+    if (indexPath.row + 1 > group.items.count) {
         return;
     }
-    
-//    Class class = [[[self classes] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-//    [self.navigationController pushViewController:[[class alloc] init] animated:YES];
-    
-    UIViewController *vc = [layerPropertySB instantiateViewControllerWithIdentifier:@"layer.Position"];
-    [self.navigationController pushViewController:vc animated:YES];
+    HIControllerItem *item = [group.items objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:item.controller animated:YES];
 }
 
 
 #pragma mark - getter
+- (NSMutableArray *)datas {
+    if (!_datas) {
+        _datas = [NSMutableArray array];
+    }
+    return _datas;
+}
 
-/**
- * 分类标题
- * class's titles
- */
-- (NSArray *)titles{
-    NSArray *titles = @[
-                        @"CALayer",
-                        @"CAShapeLayer",
-                        @"CAGradientLayer"
-                        ];
+- (void)setControllers {
+    __weak typeof(self) weakSelf = self;
     
-    return titles;
+    // layer
+    [HIControllerItemGroup instance:^(HIControllerItemGroup *group) {
+        group.title = @"CALayer";
+        group.items = @[
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"bounds";
+                            item.detail = @"Class: HILayerPositionController, bounds";
+                            item.controller = [self.layerPropertySB instantiateViewControllerWithIdentifier:@"layer.Bounds"];
+                        }],
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"position";
+                            item.detail = @"Class: HILayerPositionController, position";
+                            item.controller = [self.layerPropertySB instantiateViewControllerWithIdentifier:@"layer.Position"];
+                        }],
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"transform";
+                            item.detail = @"Class: HILayerTransformController, transform";
+                            item.controller = [[HILayerTransformController alloc] init];
+                        }],
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"mask";
+                            item.detail = @"Class: HILayerMaskController, mask";
+                            item.controller = [[HILayerMaskController alloc] init];
+                        }],
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"contents";
+                            item.detail = @"Class: HILayerMaskController, contents";
+                            item.controller = [[HILayerContentsController alloc] init];
+                        }],
+                        ];
+        [weakSelf.datas addObject:group];
+    }];
+    
+    // ShapeLayer
+    [HIControllerItemGroup instance:^(HIControllerItemGroup *group) {
+        group.title = @"CAShapeLayer";
+        group.items = @[
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"path";
+                            item.detail = @"Class: HILayerPathController, path";
+                            item.controller = [[HILayerPathController alloc] init];
+                        }],
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"strokes";
+                            item.detail = @"Class: HILayerStrokeController, strokeColor、strokeStart、strokeEnd";
+                            item.controller = [[HILayerStrokeController alloc] init];
+                        }],
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"fills";
+                            item.detail = @"Class: HILayerFillController, fillColor、fillRule";
+                            item.controller = [[HILayerFillController alloc] init];
+                        }],
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"lines";
+                            item.detail = @"HILayerLineController, lineWidth、miterLimit、lineJoin、lineCap";
+                            item.controller = [[HILayerLineController alloc] init];
+                        }],
+                        [HIControllerItem instance:^(HIControllerItem *item) {
+                            item.title = @"lineDash";
+                            item.detail = @"Class: HILayerLineDashController, lineDashPhase、Dash、Pattern";
+                            item.controller = [[HILayerLineDashController alloc] init];
+                        }],
+                        ];
+        [weakSelf.datas addObject:group];
+    }];
+    
+    // GradientLayer
+    [HIControllerItemGroup instance:^(HIControllerItemGroup *group) {
+        group.title = @"CAGradientLayer";
+        group.items = @[];
+        [weakSelf.datas addObject:group];
+    }];
 }
-
-/**
- * 属性标题
- * propertyTitles
- */
-- (NSArray *)propertyTitles{
-    NSArray *propertyTitles = @[
-                                [self layerProperties],
-                                [self shapeLayerProperties],
-                                [self gradientLayerProperties]
-                                ];
-    return propertyTitles;
-}
-
-/**
- * layer的属性
- * layer's properties
- */
-- (NSArray *)layerProperties{
-    NSArray *layerProperties = @[
-                                 @"position",
-                                 @"bounds",
-                                 @"transform",
-                                 @"mask",
-                                 @"contents",
-                                 ];
-    return layerProperties;
-}
-
-/**
- * shapeLayer的属性
- * shapeLayer's properties
- */
-- (NSArray *)shapeLayerProperties{
-    NSArray *shapeLayerProperties = @[
-                                      @"path",
-                                      @"strokes",
-                                      @"fills",
-                                      @"lines",
-                                      @"lineDash",
-                                      ];
-    return shapeLayerProperties;
-}
-
-/**
- * gradientLayer的属性
- * gradientLayer's properties
- */
-- (NSArray *)gradientLayerProperties{
-    NSArray *gradientLayerProperties = @[];
-    return gradientLayerProperties;
-}
-
-/**
- * 属性的备注
- * property's description
- */
-- (NSArray *)propertyDetails{
-    NSArray *propertyDetails = @[
-                                [self layerPropertyDetails],
-                                [self shapeLayerPropertyDetails],
-                                [self gradientLayerPropertyDetails]
-                                ];
-    return propertyDetails;
-}
-
-/**
- * layer的属性
- * layer's descriptions
- */
-- (NSArray *)layerPropertyDetails{
-    NSArray *layerPropertyDetails = @[
-                                      @"Class: HILayerPositionController, position",
-                                      @"Class: HILayerBoundsController, bounds",
-                                      @"Class: HILayerTransformController, transform",
-                                      @"Class: HILayerMaskController, mask",
-                                      @"Class: HILayerContentsController, contents",
-                                     ];
-    return layerPropertyDetails;
-}
-
-/**
- * shapeLayer的属性
- * shapeLayer's descriptions
- */
-- (NSArray *)shapeLayerPropertyDetails{
-    NSArray *shapeLayerPropertyDetails = @[
-                                          @"Class: HILayerPathController, path",
-                                          @"Class: HILayerStrokeController, strokeColor、strokeStart、strokeEnd",
-                                          @"Class: HILayerFillController, fillColor、fillRule",
-                                          @"Class: HILayerLineController, lineWidth、miterLimit、lineJoin、lineCap",
-                                          @"Class: HILayerLineDashController, lineDashPhase、Dash、Pattern",
-                                          ];
-    return shapeLayerPropertyDetails;
-}
-
-/**
- * gradientLayer的属性
- * gradientLayer's descriptions
- */
-- (NSArray *)gradientLayerPropertyDetails{
-    NSArray *gradientLayerPropertyDetails = @[];
-    return gradientLayerPropertyDetails;
-}
-
-/**
- * controller's classes
- * controller's classse
- */
-- (NSArray *)classes{
-    NSArray *classes = @[
-                         [self layerClasses],
-                         [self shapeLayerClasses],
-                         [self gradientLayerClasses],
-                         ];
-    return classes;
-}
-
-/**
- * layerContrller's classes
- * layerContrller's classes
- */
-- (NSArray *)layerClasses{
-    NSArray *layerClasses = @[
-                              [HILayerPositionController class],
-                              [HILayerBoundsController class],
-                              [HILayerTransformController class],
-                              [HILayerMaskController class],
-                              [HILayerContentsController class],
-                              ];
-    return layerClasses;
-}
-/**
- * shapeLayerContrller's classes
- * shapeLayerContrller's classes
- */
-- (NSArray *)shapeLayerClasses{
-    NSArray *shapeLayerClasses = @[
-                                   [HILayerPathController class],
-                                   [HILayerStrokeController class],
-                                   [HILayerFillController class],
-                                   [HILayerLineController class],
-                                   [HILayerLineDashController class],
-                                   ];
-    return shapeLayerClasses;
-}
-/**
- * gradientLayerContrller's classes
- * gradientLayerContrller's classes
- */
-- (NSArray *)gradientLayerClasses{
-    NSArray *gradientLayerClasses = @[];
-    return gradientLayerClasses;
-}
-
 
 @end
