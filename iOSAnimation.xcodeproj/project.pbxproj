@@ -19,6 +19,9 @@
 		D0E39E812079B9A600BC1890 /* HIBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E39E802079B9A600BC1890 /* HIBaseObject.m */; };
 		D0E39E842079BA9900BC1890 /* HIControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E39E832079BA9900BC1890 /* HIControllerItem.m */; };
 		D0E39E882079C97500BC1890 /* HIBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E39E872079C97500BC1890 /* HIBaseTableViewController.m */; };
+		D0E39E8B2079F15800BC1890 /* HIShapeLayerBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E39E8A2079F15800BC1890 /* HIShapeLayerBaseController.m */; };
+		D0E39E8E2079F39300BC1890 /* UISegmentedControl+HICategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E39E8D2079F39300BC1890 /* UISegmentedControl+HICategory.m */; };
+		D0E39E922079FC8900BC1890 /* UISlider+HICategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E39E912079FC8900BC1890 /* UISlider+HICategory.m */; };
 		D74117C41EB2E97C0082B450 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D74117C31EB2E97C0082B450 /* main.m */; };
 		D74117CF1EB2E97C0082B450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74117CE1EB2E97C0082B450 /* Assets.xcassets */; };
 		D74117D21EB2E97C0082B450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74117D01EB2E97C0082B450 /* LaunchScreen.storyboard */; };
@@ -64,6 +67,12 @@
 		D0E39E832079BA9900BC1890 /* HIControllerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIControllerItem.m; sourceTree = "<group>"; };
 		D0E39E862079C97500BC1890 /* HIBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIBaseTableViewController.h; sourceTree = "<group>"; };
 		D0E39E872079C97500BC1890 /* HIBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIBaseTableViewController.m; sourceTree = "<group>"; };
+		D0E39E892079F15800BC1890 /* HIShapeLayerBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIShapeLayerBaseController.h; sourceTree = "<group>"; };
+		D0E39E8A2079F15800BC1890 /* HIShapeLayerBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIShapeLayerBaseController.m; sourceTree = "<group>"; };
+		D0E39E8C2079F39300BC1890 /* UISegmentedControl+HICategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+HICategory.h"; sourceTree = "<group>"; };
+		D0E39E8D2079F39300BC1890 /* UISegmentedControl+HICategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+HICategory.m"; sourceTree = "<group>"; };
+		D0E39E902079FC8900BC1890 /* UISlider+HICategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISlider+HICategory.h"; sourceTree = "<group>"; };
+		D0E39E912079FC8900BC1890 /* UISlider+HICategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UISlider+HICategory.m"; sourceTree = "<group>"; };
 		D74117BF1EB2E97C0082B450 /* iOSAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74117C31EB2E97C0082B450 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D74117CE1EB2E97C0082B450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,6 +147,17 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		D0E39E8F2079F39D00BC1890 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				D0E39E8C2079F39300BC1890 /* UISegmentedControl+HICategory.h */,
+				D0E39E8D2079F39300BC1890 /* UISegmentedControl+HICategory.m */,
+				D0E39E902079FC8900BC1890 /* UISlider+HICategory.h */,
+				D0E39E912079FC8900BC1890 /* UISlider+HICategory.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
 		D74117B61EB2E97C0082B450 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +203,7 @@
 		D74117D91EB2ED340082B450 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D0E39E8F2079F39D00BC1890 /* category */,
 				D0E39E7E2079B98100BC1890 /* model */,
 				D0799FC620744DCB00CCA26A /* custom */,
 				D74117E21EB2ED5E0082B450 /* Main.storyboard */,
@@ -251,6 +272,8 @@
 		D74118131EB32F3E0082B450 /* shapeLayer */ = {
 			isa = PBXGroup;
 			children = (
+				D0E39E892079F15800BC1890 /* HIShapeLayerBaseController.h */,
+				D0E39E8A2079F15800BC1890 /* HIShapeLayerBaseController.m */,
 				D787EDCA1EB9CBB0003B8C29 /* HILayerPathController.h */,
 				D787EDCB1EB9CBB0003B8C29 /* HILayerPathController.m */,
 				D0372E68206235B500BA83EC /* HILayerFillController.h */,
@@ -355,6 +378,7 @@
 				D787EDC41EB87BA0003B8C29 /* HILayerMaskController.m in Sources */,
 				D0799FC320737F6F00CCA26A /* HILayerBoundsController.m in Sources */,
 				D0E39E7A2074B56000BC1890 /* HIBaseViewController.m in Sources */,
+				D0E39E922079FC8900BC1890 /* UISlider+HICategory.m in Sources */,
 				D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */,
 				D0E39E812079B9A600BC1890 /* HIBaseObject.m in Sources */,
 				D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */,
@@ -367,6 +391,8 @@
 				D02730D62063A36B008C8504 /* HILayerLineController.m in Sources */,
 				D0372E6A206235B500BA83EC /* HILayerFillController.m in Sources */,
 				D74117E01EB2ED340082B450 /* AppDelegate.m in Sources */,
+				D0E39E8E2079F39300BC1890 /* UISegmentedControl+HICategory.m in Sources */,
+				D0E39E8B2079F15800BC1890 /* HIShapeLayerBaseController.m in Sources */,
 				D0E39E882079C97500BC1890 /* HIBaseTableViewController.m in Sources */,
 				D74117E61EB2EDCB0082B450 /* HICALayerController.m in Sources */,
 				D7E293262069322000B4A655 /* HILayerLineDashController.m in Sources */,

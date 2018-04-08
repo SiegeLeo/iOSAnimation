@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define LAYER_WIDTH 200
+#define MARGIN 5;
+
 @interface HIBaseViewController : UIViewController
 
 @end

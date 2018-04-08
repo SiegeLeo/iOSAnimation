@@ -10,7 +10,4 @@
 
 @interface HILayerBaseController : HIBaseViewController
 
-/** layer*/
-@property (nonatomic, strong) CALayer *demoLayer;
-
 @end

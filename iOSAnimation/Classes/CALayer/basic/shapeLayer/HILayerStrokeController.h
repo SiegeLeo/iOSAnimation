@@ -6,8 +6,8 @@
 //  Copyright © 2018年 h_nChen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HIShapeLayerBaseController.h"
 
-@interface HILayerStrokeController : UIViewController
+@interface HILayerStrokeController : HIShapeLayerBaseController
 
 @end

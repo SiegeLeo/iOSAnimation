@@ -6,9 +6,6 @@
 //  Copyright © 2018年 h_nChen. All rights reserved.
 //
 
-#define LAYER_WIDTH 200
-#define MARGIN 5;
-
 #import "HILayerStrokeController.h"
 
 @interface HILayerStrokeController ()
@@ -29,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"reset" style:UIBarButtonItemStyleDone target:self action:@selector(handleReset)];
     
@@ -40,6 +36,7 @@
     [self.view addSubview:self.eSlider];
     
     [self.view.layer addSublayer:self.shapeLayer];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +46,7 @@
 
 
 #pragma mark - getter
-- (CAShapeLayer *)shapeLayer{
+- (CAShapeLayer *)shapeLayer {
     if (!_shapeLayer) {
         _shapeLayer = [CAShapeLayer layer];
         _shapeLayer.frame = CGRectMake((self.view.bounds.size.width - LAYER_WIDTH) * 0.5, (self.view.bounds.size.height - LAYER_WIDTH) * 0.5 + 80, LAYER_WIDTH, LAYER_WIDTH);

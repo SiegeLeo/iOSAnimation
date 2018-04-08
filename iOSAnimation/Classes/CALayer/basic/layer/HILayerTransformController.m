@@ -192,21 +192,20 @@
                 break;
         }
     } else {
-            switch (self.action) {
-                case CALayerTransformActionTranslate:
-                    [self setTranslation:slider.value];
-                    break;
-                case CALayerTransformActionRotate:
-                    [self setRotation:slider.value];
-                    break;
-                case CALayerTransformActionScale:
-                    [self setScale:slider.value];
-                    break;
-                default:
-                    break;
-            }
+        switch (self.action) {
+            case CALayerTransformActionTranslate:
+                [self setTranslation:slider.value];
+                break;
+            case CALayerTransformActionRotate:
+                [self setRotation:slider.value];
+                break;
+            case CALayerTransformActionScale:
+                [self setScale:slider.value];
+                break;
+            default:
+                break;
         }
-     
+    }
 }
 
 /**
