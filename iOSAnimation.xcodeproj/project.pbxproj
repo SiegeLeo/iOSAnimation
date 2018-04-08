@@ -14,6 +14,8 @@
 		D0799FC520737FE200CCA26A /* HILayerProperty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0799FC420737FE200CCA26A /* HILayerProperty.storyboard */; };
 		D0799FCC2074508400CCA26A /* HISliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0799FCB2074508400CCA26A /* HISliderView.m */; };
 		D0799FCE2074509E00CCA26A /* HISliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0799FCD2074509E00CCA26A /* HISliderView.xib */; };
+		D0E39E7A2074B56000BC1890 /* HIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E39E792074B56000BC1890 /* HIBaseViewController.m */; };
+		D0E39E7D2074B5DA00BC1890 /* HILayerBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E39E7C2074B5DA00BC1890 /* HILayerBaseController.m */; };
 		D74117C41EB2E97C0082B450 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D74117C31EB2E97C0082B450 /* main.m */; };
 		D74117CF1EB2E97C0082B450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74117CE1EB2E97C0082B450 /* Assets.xcassets */; };
 		D74117D21EB2E97C0082B450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74117D01EB2E97C0082B450 /* LaunchScreen.storyboard */; };
@@ -49,6 +51,10 @@
 		D0799FCA2074508400CCA26A /* HISliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HISliderView.h; sourceTree = "<group>"; };
 		D0799FCB2074508400CCA26A /* HISliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HISliderView.m; sourceTree = "<group>"; };
 		D0799FCD2074509E00CCA26A /* HISliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HISliderView.xib; sourceTree = "<group>"; };
+		D0E39E782074B56000BC1890 /* HIBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIBaseViewController.h; sourceTree = "<group>"; };
+		D0E39E792074B56000BC1890 /* HIBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIBaseViewController.m; sourceTree = "<group>"; };
+		D0E39E7B2074B5DA00BC1890 /* HILayerBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HILayerBaseController.h; sourceTree = "<group>"; };
+		D0E39E7C2074B5DA00BC1890 /* HILayerBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HILayerBaseController.m; sourceTree = "<group>"; };
 		D74117BF1EB2E97C0082B450 /* iOSAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74117C31EB2E97C0082B450 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D74117CE1EB2E97C0082B450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +110,8 @@
 				D0799FCA2074508400CCA26A /* HISliderView.h */,
 				D0799FCB2074508400CCA26A /* HISliderView.m */,
 				D0799FCD2074509E00CCA26A /* HISliderView.xib */,
+				D0E39E782074B56000BC1890 /* HIBaseViewController.h */,
+				D0E39E792074B56000BC1890 /* HIBaseViewController.m */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -200,6 +208,8 @@
 		D74118121EB32F3E0082B450 /* layer */ = {
 			isa = PBXGroup;
 			children = (
+				D0E39E7B2074B5DA00BC1890 /* HILayerBaseController.h */,
+				D0E39E7C2074B5DA00BC1890 /* HILayerBaseController.m */,
 				D0799FC420737FE200CCA26A /* HILayerProperty.storyboard */,
 				D79E6892206FDF8700104A1D /* HILayerPositionController.h */,
 				D79E6893206FDF8700104A1D /* HILayerPositionController.m */,
@@ -321,6 +331,7 @@
 			files = (
 				D787EDC41EB87BA0003B8C29 /* HILayerMaskController.m in Sources */,
 				D0799FC320737F6F00CCA26A /* HILayerBoundsController.m in Sources */,
+				D0E39E7A2074B56000BC1890 /* HIBaseViewController.m in Sources */,
 				D74118171EB32F9B0082B450 /* HILayerTransformController.m in Sources */,
 				D74117E91EB2EDE00082B450 /* HIUIViewController.m in Sources */,
 				D74117E11EB2ED340082B450 /* ViewController.m in Sources */,
@@ -334,6 +345,7 @@
 				D74117E01EB2ED340082B450 /* AppDelegate.m in Sources */,
 				D74117E61EB2EDCB0082B450 /* HICALayerController.m in Sources */,
 				D7E293262069322000B4A655 /* HILayerLineDashController.m in Sources */,
+				D0E39E7D2074B5DA00BC1890 /* HILayerBaseController.m in Sources */,
 				D74117C41EB2E97C0082B450 /* main.m in Sources */,
 				D74118111EB31E7E0082B450 /* HILayerBasicController.m in Sources */,
 			);

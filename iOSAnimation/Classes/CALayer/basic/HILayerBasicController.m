@@ -77,7 +77,7 @@
 //    Class class = [[[self classes] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 //    [self.navigationController pushViewController:[[class alloc] init] animated:YES];
     
-    UIViewController *vc = [layerPropertySB instantiateViewControllerWithIdentifier:@"layer.Bounds"];
+    UIViewController *vc = [layerPropertySB instantiateViewControllerWithIdentifier:@"layer.Position"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -191,9 +191,7 @@
             default:
                 break;
         }
-    }else{
-            
-            
+    } else {
             switch (self.action) {
                 case CALayerTransformActionTranslate:
                     [self setTranslation:slider.value];

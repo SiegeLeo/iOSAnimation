@@ -6,8 +6,9 @@
 //  Copyright © 2018年 h_nChen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HILayerBaseController.h"
 
-@interface HILayerBoundsController : UIViewController
+@interface HILayerBoundsController : HILayerBaseController
+
 
 @end

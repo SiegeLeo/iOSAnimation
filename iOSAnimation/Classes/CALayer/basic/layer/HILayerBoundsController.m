@@ -26,20 +26,20 @@
     // Do any additional setup after loading the view.
     
     self.title = @"bounds";
-    
-    CGPoint point = self.blueView.layer.frame.origin;
+
     CGSize size = self.blueView.layer.bounds.size;
     
     self.wSlider.valueChangeBlock = ^(float value) {
         CGFloat width = (value - 0.5) * 100  + size.width;
-        self.blueView.layer.bounds = CGRectMake(point.x, point.y, width, self.blueView.layer.frame.size.height);
+        [self.blueView.layer setValue:@(width) forKeyPath:@"bounds.size.width"];
     };
-    
     self.hSlider.valueChangeBlock = ^(float value) {
         CGFloat height = (value - 0.5) * 100  + size.height;
-        self.blueView.layer.bounds = CGRectMake(point.x, point.y, self.blueView.layer.frame.size.width, height);
+        [self.blueView.layer setValue:@(height) forKeyPath:@"bounds.size.height"];
     };
-        
+}
+
+- (void)viewDidLayoutSubviews {
 }
 
 - (void)didReceiveMemoryWarning {

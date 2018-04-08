@@ -6,8 +6,8 @@
 //  Copyright © 2018 h_nChen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HILayerBaseController.h"
 
-@interface HILayerPositionController : UIViewController
+@interface HILayerPositionController : HILayerBaseController
 
 @end
