@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *blueView;
 @property (weak, nonatomic) IBOutlet UIView *pinkView;
+@property (nonatomic, strong) UIColor *originColor;
 
 @property (nonatomic, strong) CALayer *layer;
 @property (nonatomic, strong) CALayer *maskLayer;
@@ -40,12 +41,13 @@
 - (void)viewDidLayoutSubviews {
     self.layer = self.blueView.layer;
     self.maskLayer = self.pinkView.layer;
+    self.originColor = self.pinkView.backgroundColor;
     
     __weak typeof(self) weakSelf = self;
     
     self.modeSegment.hi_clickedBlock = ^(UISegmentedControl *segment) {
         if (segment.selectedSegmentIndex == 0) {
-            weakSelf.maskLayer.backgroundColor = [UIColor redColor].CGColor;
+            weakSelf.maskLayer.backgroundColor = weakSelf.originColor.CGColor;
             weakSelf.maskLayer.contents = nil;
         }
         if (segment.selectedSegmentIndex == 1) {
@@ -73,7 +75,7 @@
     self.layer.mask = nil;
     
     [self.blueView addSubview:self.pinkView];
-    self.maskLayer.backgroundColor = [UIColor redColor].CGColor;
+    self.maskLayer.backgroundColor = self.originColor.CGColor;
     self.maskLayer.contents = nil;
 }
 
