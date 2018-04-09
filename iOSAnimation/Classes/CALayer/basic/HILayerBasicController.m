@@ -36,8 +36,11 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"layerTitleBasic", nil);
+}
 
-    
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setControllers];
 }
 
 
@@ -86,6 +89,8 @@
 #pragma mark - getter
 
 - (void)setControllers {
+    [self.datas removeAllObjects];
+    
     self.layerPropertySB = [UIStoryboard storyboardWithName:@"HILayerProperty" bundle:nil];
     
     __weak typeof(self) weakSelf = self;
@@ -112,7 +117,7 @@
                         [HIControllerItem instance:^(HIControllerItem *item) {
                             item.title = @"mask";
                             item.detail = @"Class: HILayerMaskController, mask";
-                            item.controller = [[HILayerMaskController alloc] init];
+                            item.controller = [self.layerPropertySB instantiateViewControllerWithIdentifier:@"layer.Mask"];
                         }],
                         [HIControllerItem instance:^(HIControllerItem *item) {
                             item.title = @"contents";

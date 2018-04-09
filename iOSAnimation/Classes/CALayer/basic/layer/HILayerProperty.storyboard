@@ -222,8 +222,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="C64-ba-94f" secondAttribute="trailing" id="1SO-4C-fnR"/>
-                                    <constraint firstItem="C64-ba-94f" firstAttribute="leading" secondItem="OhT-0d-Dzg" secondAttribute="leading" id="Fm9-Oe-Ohw"/>
-                                    <constraint firstAttribute="trailing" secondItem="CqF-mW-IW9" secondAttribute="trailing" id="UVd-qq-6gt"/>
                                     <constraint firstItem="CqF-mW-IW9" firstAttribute="top" secondItem="OhT-0d-Dzg" secondAttribute="top" id="ac5-aS-pGY"/>
                                     <constraint firstItem="CqF-mW-IW9" firstAttribute="leading" secondItem="OhT-0d-Dzg" secondAttribute="leading" id="vuK-dH-eob"/>
                                 </constraints>
@@ -275,6 +273,116 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGf-cT-MTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-647.82608695652175" y="45.652173913043484"/>
+        </scene>
+        <!--mask-->
+        <scene sceneID="Rfo-pw-KPR">
+            <objects>
+                <viewController storyboardIdentifier="layer.Mask" title="mask" id="1pW-n5-7uj" customClass="HILayerMaskController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Ib-TD-qrA"/>
+                        <viewControllerLayoutGuide type="bottom" id="gEe-ng-jda"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pHY-Bq-uPB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Plb-zf-I5Y">
+                                <rect key="frame" x="0.0" y="64" width="414" height="126"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JTm-z5-Vzb">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sau-YY-Dwd">
+                                                <rect key="frame" x="88" y="6.6666666666666714" width="239" height="29"/>
+                                                <segments>
+                                                    <segment title="backgroundColor"/>
+                                                    <segment title="imageContent"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.98191427411015209" green="0.8235506016440467" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="FQB-EH-ggO"/>
+                                            <constraint firstItem="sau-YY-Dwd" firstAttribute="centerY" secondItem="JTm-z5-Vzb" secondAttribute="centerY" id="smT-ys-ofU"/>
+                                            <constraint firstItem="sau-YY-Dwd" firstAttribute="centerX" secondItem="JTm-z5-Vzb" secondAttribute="centerX" id="tJW-ko-MVc"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCl-aj-iOk" customClass="HISliderView">
+                                        <rect key="frame" x="0.0" y="42" width="414" height="42"/>
+                                        <color key="backgroundColor" red="0.75724347672739689" green="1" blue="0.92195531663767794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="3bH-xY-wPK"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="x"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tv3-Iw-QAv" customClass="HISliderView">
+                                        <rect key="frame" x="0.0" y="84" width="414" height="42"/>
+                                        <color key="backgroundColor" red="0.40386627732226466" green="0.92861020378947101" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="awW-Vc-AcP"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="y"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="JTm-z5-Vzb" secondAttribute="trailing" id="bBN-Cz-38y"/>
+                                    <constraint firstItem="JTm-z5-Vzb" firstAttribute="leading" secondItem="Plb-zf-I5Y" secondAttribute="leading" id="kLU-zR-bvL"/>
+                                    <constraint firstItem="JTm-z5-Vzb" firstAttribute="top" secondItem="Plb-zf-I5Y" secondAttribute="top" id="ndw-B9-7LR"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDg-if-Yod">
+                                <rect key="frame" x="87" y="288" width="240" height="160"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k20-co-5Ud">
+                                        <rect key="frame" x="56" y="16" width="128" height="128"/>
+                                        <color key="backgroundColor" red="0.98137654949122888" green="0.53613333616338577" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="128" id="O7E-RH-Uru"/>
+                                            <constraint firstAttribute="height" constant="128" id="XgP-5W-czI"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.54443175077713779" green="0.99056406361524618" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="k20-co-5Ud" firstAttribute="centerY" secondItem="TDg-if-Yod" secondAttribute="centerY" id="Fpe-hR-Mcf"/>
+                                    <constraint firstAttribute="height" constant="160" id="JQT-Lx-sAe"/>
+                                    <constraint firstItem="k20-co-5Ud" firstAttribute="centerX" secondItem="TDg-if-Yod" secondAttribute="centerX" id="WGp-L3-ovK"/>
+                                    <constraint firstAttribute="width" constant="240" id="yaU-dl-aJZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Plb-zf-I5Y" firstAttribute="leading" secondItem="pHY-Bq-uPB" secondAttribute="leading" id="HmO-PB-pjJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Plb-zf-I5Y" secondAttribute="trailing" id="Ri6-xg-b8I"/>
+                            <constraint firstItem="TDg-if-Yod" firstAttribute="centerX" secondItem="pHY-Bq-uPB" secondAttribute="centerX" id="W3l-oS-d4H"/>
+                            <constraint firstItem="TDg-if-Yod" firstAttribute="centerY" secondItem="pHY-Bq-uPB" secondAttribute="centerY" id="sVK-cr-WOD"/>
+                            <constraint firstItem="Plb-zf-I5Y" firstAttribute="top" secondItem="3Ib-TD-qrA" secondAttribute="bottom" id="yGf-5S-3ik"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="mask" id="V1l-W3-70f">
+                        <barButtonItem key="rightBarButtonItem" title="clean" id="E7k-FY-gvP">
+                            <connections>
+                                <action selector="cleanMask:" destination="1pW-n5-7uj" id="SMf-B1-vaf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="blueView" destination="TDg-if-Yod" id="PLL-Pv-cyK"/>
+                        <outlet property="modeSegment" destination="sau-YY-Dwd" id="fqO-1R-FcG"/>
+                        <outlet property="pinkView" destination="k20-co-5Ud" id="Oqr-7i-Ur9"/>
+                        <outlet property="xSliderView" destination="TCl-aj-iOk" id="1cb-6C-nN2"/>
+                        <outlet property="ySliderView" destination="tv3-Iw-QAv" id="EK4-XP-lmB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lDb-ZJ-xyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.739130434782609" y="42.391304347826093"/>
         </scene>
     </scenes>
 </document>

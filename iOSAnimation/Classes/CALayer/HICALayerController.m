@@ -26,7 +26,12 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = NSLocalizedString(@"layerTitle", nil);
-    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setControllers];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +67,7 @@
 
 #pragma mark - getter
 - (void)setControllers {
+    [self.datas removeAllObjects];
     __weak typeof(self) weakSelf = self;
     [HIControllerItem instance:^(HIControllerItem *item) {
         item.title = @"Basic";

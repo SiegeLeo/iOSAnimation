@@ -6,8 +6,8 @@
 //  Copyright © 2017年 h_nChen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HILayerBaseController.h"
 
-@interface HILayerMaskController : UIViewController
+@interface HILayerMaskController : HILayerBaseController
 
 @end
